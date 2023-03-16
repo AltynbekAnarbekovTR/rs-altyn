@@ -1,14 +1,29 @@
-import { useState } from 'react';
+import React from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import About from './pages/About';
+import Header from './components/Header/Header';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export function App() {
   // eslint-disable-next-line react/react-in-jsx-scope
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 }
 
-export default App;
+export function WrappedApp() {
+  // eslint-disable-next-line react/react-in-jsx-scope
+  return (
+    <HashRouter>
+      <App />
+    </HashRouter>
+  );
+}
