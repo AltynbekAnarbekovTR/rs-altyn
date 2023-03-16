@@ -6,15 +6,36 @@ type State = {
   searchValue: string;
 };
 
-// type Props = null;
+class SearchBar extends React.Component<null, State> {
+  constructor() {
+    super(null);
 
-class SearchBar extends React.Component<{}, State> {
+    this.state = {
+      searchValue: '',
+    };
+  }
+
+  componentDidMount() {
+    const savedValue = localStorage.getItem('searchValue');
+    if (savedValue?.trim()) {
+      this.setState({ searchValue: savedValue });
+    }
+  }
+
   render() {
     const { searchValue } = this.state;
 
     return (
       <form className={styles.search}>
-        <input type="text" placeholder="Search" />
+        <input
+          value={searchValue}
+          onChange={(e) => {
+            this.setState(() => ({ searchValue: e.target.value }));
+            localStorage.setItem('searchValue', searchValue);
+          }}
+          type="text"
+          placeholder="Search"
+        />
         <button type="submit">
           <img src={searchImg} alt="search" />
         </button>
