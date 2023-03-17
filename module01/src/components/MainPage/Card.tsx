@@ -10,7 +10,7 @@ type Props = {
 
 function Card({ title, author, genre, image }: Props) {
   return (
-    <div className={styles.card}>
+    <li className={styles.card}>
       <div className={styles.cover}>
         <img src={image} alt="" />
       </div>
@@ -21,7 +21,7 @@ function Card({ title, author, genre, image }: Props) {
         </p>
         <h6 className={styles.genre}>{genre}</h6>
       </div>
-    </div>
+    </li>
   );
 }
 

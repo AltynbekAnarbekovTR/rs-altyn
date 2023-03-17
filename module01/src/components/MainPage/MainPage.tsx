@@ -81,7 +81,7 @@ function MainPage() {
   return (
     <section>
       <div className="container">
-        <div className={styles.cards}>
+        <ul className={styles.cards} data-testid="cards">
           {booksData.map((item) => (
             <Card
               key={item.title}
@@ -91,7 +91,7 @@ function MainPage() {
               image={item.image}
             />
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

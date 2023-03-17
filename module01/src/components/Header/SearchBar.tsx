@@ -6,9 +6,9 @@ type State = {
   searchValue: string;
 };
 
-class SearchBar extends React.Component<null, State> {
-  constructor() {
-    super(null);
+class SearchBar extends React.Component<{}, State> {
+  constructor(props = {}) {
+    super(props);
 
     this.state = {
       searchValue: '',
@@ -18,7 +18,9 @@ class SearchBar extends React.Component<null, State> {
   componentDidMount() {
     const savedValue = localStorage.getItem('searchValue');
     if (savedValue?.trim()) {
-      this.setState({ searchValue: savedValue });
+      this.setState(() => {
+        return { searchValue: savedValue };
+      });
     }
   }
 
@@ -35,6 +37,7 @@ class SearchBar extends React.Component<null, State> {
           }}
           type="text"
           placeholder="Search"
+          data-testid="search-bar"
         />
         <button type="submit">
           <img src={searchImg} alt="search" />

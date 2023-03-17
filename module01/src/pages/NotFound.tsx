@@ -5,7 +5,7 @@ import notFoundImg from '../assets/not-found.png';
 
 function NotFound() {
   return (
-    <div className={styles['not-found']}>
+    <div className={styles['not-found']} data-testid="not-found">
       <div className="container">
         <div className={styles['not-found__box']}>
           <img src={notFoundImg} alt="" />

@@ -1,16 +1,17 @@
+import React from 'react';
 import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
 
-import { WrappedApp, App } from './App';
+import { MemoryRouter } from 'react-router-dom';
+import { App, WrappedApp } from './App';
 
 describe('App', () => {
-  it('Renders hello world', () => {
+  it('Render cards', () => {
     // ARRANGE
     render(<WrappedApp />);
     // ACT
     // Expect
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Hello World');
+    expect(screen.getByTestId('cards')).toBeInTheDocument();
   });
   it('Renders not found if invalid path', () => {
     render(
@@ -18,6 +19,15 @@ describe('App', () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Not Found');
+    expect(screen.getByTestId('not-found')).toBeInTheDocument();
+  });
+  it('Render About Us paragraph', () => {
+    render(
+      <MemoryRouter initialEntries={['/about']}>
+        <App />
+      </MemoryRouter>
+    );
+    const searchValue = screen.getByTestId('about') as HTMLParagraphElement;
+    expect(searchValue).not.toBeEmpty();
   });
 });

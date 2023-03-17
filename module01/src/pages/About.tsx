@@ -6,7 +6,7 @@ function About() {
     <div className={styles.about}>
       <div className="container">
         <h1>About TinyFox</h1>
-        <p>
+        <p data-testid="about">
           TinyFox works to connect readers with independent booksellers all over the world. ‍We
           believe local bookstores are essential community hubs that foster culture, curiosity, and
           a love of reading, and we are committed to helping them thrive. Every purchase on the site
