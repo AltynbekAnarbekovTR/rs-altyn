@@ -41,8 +41,13 @@
     color: blue;
 }
 
-.genre {
-    margin: 10px 0;
-    font-size: 18px;
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details {
+    font-family: 'Inter';
+    font-size: 14px;
     color: rgb(78, 78, 78)
 }

@@ -89,6 +89,8 @@ function MainPage() {
               author={item.author}
               genre={item.genre}
               image={item.image}
+              published={item.published}
+              pages={item.pages}
             />
           ))}
         </ul>
