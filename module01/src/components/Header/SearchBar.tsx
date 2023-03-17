@@ -4,6 +4,7 @@ import searchImg from '../../assets/search.png';
 
 type State = {
   searchValue: string;
+  counter: number;
 };
 
 class SearchBar extends React.Component<{}, State> {
@@ -12,10 +13,14 @@ class SearchBar extends React.Component<{}, State> {
 
     this.state = {
       searchValue: '',
+      counter: 0,
     };
   }
 
   componentDidMount() {
+    this.setState((prevState) => {
+      return { counter: prevState.counter + 1 };
+    });
     const savedValue = localStorage.getItem('searchValue');
     if (savedValue?.trim()) {
       this.setState(() => {
@@ -26,9 +31,11 @@ class SearchBar extends React.Component<{}, State> {
 
   render() {
     const { searchValue } = this.state;
+    const { counter } = this.state;
 
     return (
       <form className={styles.search}>
+        <p>{counter}</p>
         <input
           value={searchValue}
           onChange={(e) => {

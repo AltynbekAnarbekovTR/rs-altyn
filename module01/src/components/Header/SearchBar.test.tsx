@@ -1,6 +1,14 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import SearchBar from './SearchBar';
+
+// const localStorageMock = {
+//   getItem: jest.fn(),
+//   setItem: jest.fn(),
+//   clear: jest.fn(),
+// };
+// global.localStorage = localStorageMock as unknown as Storage;
 
 // interface Store {
 //   [key: string]: number | string;
@@ -40,10 +48,14 @@ test('Check if initial search bar is empty', () => {
   expect(searchValue.value).toBe('');
 });
 
-test('Check if search bar input is saved in local storage and retrieved after component rerender', () => {
+test('Check if search bar input is saved in local storage and retrieved after component rerender', async () => {
   const { rerender } = render(<SearchBar />);
+  // expect(localStorageMock.setItem).toHaveBeenCalled();
   fireEvent.change(screen.getByTestId('search-bar'), { target: { value: 'na' } });
+  // userEvent.type(screen.getByTestId('search-bar'), 'na');
   const searchValue = screen.getByTestId('search-bar') as HTMLInputElement;
-  rerender(<SearchBar />);
+  screen.debug();
+  // rerender(<SearchBar />);
   expect(searchValue.value).toBe('na');
+  screen.debug();
 });

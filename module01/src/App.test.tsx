@@ -28,6 +28,6 @@ describe('App', () => {
       </MemoryRouter>
     );
     const searchValue = screen.getByTestId('about') as HTMLParagraphElement;
-    expect(searchValue).not.toBeEmpty();
+    expect(searchValue).not.toBeEmptyDOMElement();
   });
 });

@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 
 export function App() {
-  // eslint-disable-next-line react/react-in-jsx-scope
   return (
     <>
       <Header />
