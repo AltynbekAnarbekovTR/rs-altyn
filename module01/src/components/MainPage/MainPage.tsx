@@ -80,21 +80,19 @@ const booksData = [
 function MainPage() {
   return (
     <section>
-      <div className="container">
-        <ul className={styles.cards} data-testid="cards">
-          {booksData.map((item) => (
-            <Card
-              key={item.title}
-              title={item.title}
-              author={item.author}
-              genre={item.genre}
-              image={item.image}
-              published={item.published}
-              pages={item.pages}
-            />
-          ))}
-        </ul>
-      </div>
+      <ul className={styles.cards} data-testid="cards">
+        {booksData.map((item) => (
+          <Card
+            key={item.title}
+            title={item.title}
+            author={item.author}
+            genre={item.genre}
+            image={item.image}
+            published={item.published}
+            pages={item.pages}
+          />
+        ))}
+      </ul>
     </section>
   );
 }

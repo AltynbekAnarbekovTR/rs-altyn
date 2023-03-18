@@ -1,10 +1,8 @@
 import React from 'react';
 import styles from './SearchBar.module.css';
-import searchImg from '../../assets/search.png';
 
 type State = {
   searchValue: string;
-  counter: number;
 };
 
 class SearchBar extends React.Component<{}, State> {
@@ -13,42 +11,48 @@ class SearchBar extends React.Component<{}, State> {
 
     this.state = {
       searchValue: '',
-      counter: 0,
     };
   }
 
   componentDidMount() {
-    this.setState((prevState) => {
-      return { counter: prevState.counter + 1 };
-    });
     const savedValue = localStorage.getItem('searchValue');
+    console.log('Did Mount', savedValue);
     if (savedValue?.trim()) {
-      this.setState(() => {
-        return { searchValue: savedValue };
-      });
+      console.log('Here', savedValue);
+      this.setState({ searchValue: savedValue });
     }
+  }
+
+  componentWillUnmount() {
+    const { searchValue } = this.state;
+    console.log('Will Unmount', searchValue);
+    localStorage.setItem('searchValue', searchValue);
   }
 
   render() {
     const { searchValue } = this.state;
-    const { counter } = this.state;
 
     return (
       <form className={styles.search}>
-        <p>{counter}</p>
-        <input
-          value={searchValue}
-          onChange={(e) => {
-            this.setState(() => ({ searchValue: e.target.value }));
-            localStorage.setItem('searchValue', searchValue);
-          }}
-          type="text"
-          placeholder="Search"
-          data-testid="search-bar"
-        />
-        <button type="submit">
-          <img src={searchImg} alt="search" />
-        </button>
+        <div className={styles.container}>
+          <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
+            <div className={styles.search_box}>
+              <input
+                type="text"
+                className={styles.input}
+                value={searchValue}
+                onChange={(e) => {
+                  this.setState(() => ({ searchValue: e.target.value }));
+                  console.log('input', searchValue);
+                }}
+                placeholder="search..."
+              />
+              <div className={`${styles.btn} ${styles.btn_common}`}>
+                <i className="fas fa-search" />
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     );
   }

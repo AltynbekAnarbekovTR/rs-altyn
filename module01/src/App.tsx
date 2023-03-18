@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import About from './pages/About';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
@@ -21,8 +21,8 @@ export function App() {
 export function WrappedApp() {
   // eslint-disable-next-line react/react-in-jsx-scope
   return (
-    <HashRouter>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
