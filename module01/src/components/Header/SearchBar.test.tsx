@@ -2,15 +2,15 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import SearchBar from './SearchBar';
 
-test('Check if initial search bar is empty', () => {
-  render(<SearchBar />);
-  const searchValue = screen.getByRole('textbox') as HTMLInputElement;
-  expect(searchValue.value).toBe('');
-});
-
-test('Check if search bar input is saved in local storage and retrieved after component rerender', () => {
+test('Check if initially search bar is empty', () => {
   render(<SearchBar />);
   const searchbar = screen.getByRole('textbox') as HTMLInputElement;
-  fireEvent.change(searchbar, { target: { value: 'na' } });
-  expect(searchbar.value).toBe('na');
+  expect(searchbar.value).toBe('');
+});
+
+test('Check that search bar input work correctly', () => {
+  render(<SearchBar />);
+  const searchbar = screen.getByRole('textbox') as HTMLInputElement;
+  fireEvent.change(searchbar, { target: { value: 'some input' } });
+  expect(searchbar.value).toBe('some input');
 });

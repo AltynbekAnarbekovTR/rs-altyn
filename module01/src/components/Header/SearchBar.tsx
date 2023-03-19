@@ -10,23 +10,22 @@ class SearchBar extends React.Component<{}, State> {
     super(props);
 
     this.state = {
-      searchValue: '',
+      searchValue: localStorage.getItem('searchValue') || '',
     };
   }
 
   componentDidMount() {
     const savedValue = localStorage.getItem('searchValue');
-    console.log('Did Mount', savedValue);
     if (savedValue?.trim()) {
-      console.log('Here', savedValue);
       this.setState({ searchValue: savedValue });
     }
   }
 
   componentWillUnmount() {
     const { searchValue } = this.state;
-    console.log('Will Unmount', searchValue);
-    localStorage.setItem('searchValue', searchValue);
+    if (searchValue.trim() !== '') {
+      localStorage.setItem('searchValue', searchValue);
+    }
   }
 
   render() {
@@ -43,7 +42,6 @@ class SearchBar extends React.Component<{}, State> {
                 value={searchValue}
                 onChange={(e) => {
                   this.setState(() => ({ searchValue: e.target.value }));
-                  console.log('input', searchValue);
                 }}
                 placeholder="search..."
               />
