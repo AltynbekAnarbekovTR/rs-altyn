@@ -18,6 +18,16 @@ function Navbar() {
         </li>
         <li>
           <NavLink
+            to="/add-book"
+            className={({ isActive }) => {
+              return isActive ? 'active' : '';
+            }}
+          >
+            Add Book
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/about"
             className={({ isActive }) => {
               return isActive ? 'active' : '';
