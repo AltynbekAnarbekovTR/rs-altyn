@@ -1,6 +1,8 @@
 import React from 'react';
-import Card from './Card';
-import styles from './MainPage.module.css';
+import Card from '../../components/Card/Card';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import styles from './Home.module.css';
+// import MainPage from '../../components/MainPage/MainPage';
 
 const booksData = [
   {
@@ -77,24 +79,27 @@ const booksData = [
   },
 ];
 
-function MainPage() {
+function Home() {
   return (
-    <section>
-      <ul className={styles.cards} data-testid="cards">
-        {booksData.map((item) => (
-          <Card
-            key={item.title}
-            title={item.title}
-            author={item.author}
-            genre={item.genre}
-            image={item.image}
-            published={item.published}
-            pages={item.pages}
-          />
-        ))}
-      </ul>
-    </section>
+    <div className="container">
+      <section>
+        <SearchBar />
+        <ul className={styles.cards} data-testid="cards">
+          {booksData.map((item) => (
+            <Card
+              key={item.title}
+              title={item.title}
+              author={item.author}
+              genre={item.genre}
+              image={item.image}
+              published={item.published}
+              pages={item.pages}
+            />
+          ))}
+        </ul>
+      </section>
+    </div>
   );
 }
 
-export default MainPage;
+export default Home;

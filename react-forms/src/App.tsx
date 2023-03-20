@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import About from './pages/About';
+import About from './pages/About/About';
 import Header from './components/Header/Header';
-import Home from './pages/Home';
-import NotFound from './pages/NotFound';
+import Home from './pages/Home/Home';
+import NotFound from './pages/NotFound/NotFound';
 
 export function App() {
   return (
@@ -19,7 +19,6 @@ export function App() {
 }
 
 export function WrappedApp() {
-  // eslint-disable-next-line react/react-in-jsx-scope
   return (
     <BrowserRouter>
       <App />

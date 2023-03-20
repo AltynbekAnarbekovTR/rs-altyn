@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
-import notFoundImg from '../assets/not-found.png';
+import notFoundImg from '../../assets/not-found.png';
 
 function NotFound() {
   return (
