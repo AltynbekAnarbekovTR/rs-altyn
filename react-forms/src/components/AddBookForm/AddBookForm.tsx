@@ -21,7 +21,7 @@ interface State {
   formHasError: boolean;
 }
 
-class AddBook extends Component<Props, State> {
+class AddBookForm extends Component<Props, State> {
   private titleRef = React.createRef<HTMLInputElement>();
 
   private authorRef = React.createRef<HTMLInputElement>();
@@ -214,7 +214,13 @@ class AddBook extends Component<Props, State> {
         <div>
           <label htmlFor="title">
             Title:
-            <input id="title" type="text" ref={this.titleRef} />
+            <input
+              onChange={(e) => console.log(e)}
+              data-testid="title"
+              id="title"
+              type="text"
+              ref={this.titleRef}
+            />
             {titleError !== '' && <p className={styles.error}> {titleError} </p>}
           </label>
         </div>
@@ -257,13 +263,14 @@ class AddBook extends Component<Props, State> {
           </label>
           <label className={styles.stock} htmlFor="stock">
             Fantasy
-            <input id="fantasy" type="checkbox" ref={this.scifiRef} />
+            <input data-testid="fantasy" id="fantasy" type="checkbox" ref={this.scifiRef} />
           </label>
           {genresError !== '' && <p className={styles.error}> {genresError} </p>}
         </div>
         <div className="switch-field">
           <div className="switch-title">Timeframe</div>
           <input
+            data-testid="inStock"
             type="radio"
             id="switch_left"
             name="switchToggle"
@@ -293,7 +300,13 @@ class AddBook extends Component<Props, State> {
         <div>
           <label className="input-field date" htmlFor="published">
             Published:
-            <input id="published" type="date" ref={this.publishedRef} />
+            <input
+              onChange={(e) => console.log(e)}
+              data-testid="published"
+              id="published"
+              type="date"
+              ref={this.publishedRef}
+            />
             {publishedError !== '' && <p className={styles.error}> {publishedError} </p>}
           </label>
         </div>
