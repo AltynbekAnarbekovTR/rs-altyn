@@ -3,20 +3,21 @@ import Card from '../../components/Card/Card';
 
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
+import { FormData } from '../../types/types';
 
 interface State {
   cards: FormData[];
 }
 
-interface FormData {
-  title: string;
-  author: string;
-  genre: string;
-  published: string;
-  pages: string;
-  stock: boolean;
-  image: string | null;
-}
+// interface FormData {
+//   title: string;
+//   author: string;
+//   genre: string;
+//   published: string;
+//   pages: string;
+//   stock: boolean;
+//   image: string | null;
+// }
 
 class AddBook extends React.Component<{}, State> {
   constructor(props = {}) {
@@ -43,10 +44,12 @@ class AddBook extends React.Component<{}, State> {
               key={item.title}
               title={item.title}
               author={item.author}
-              genre={item.genre}
+              genres={item.genres}
               image={item.image}
               published={item.published}
               pages={item.pages}
+              stock={item.stock}
+              bookType={item.bookType}
             />
           ))}
         </ul>
