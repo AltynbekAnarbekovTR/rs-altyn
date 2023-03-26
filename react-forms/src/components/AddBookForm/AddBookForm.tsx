@@ -21,6 +21,8 @@ interface State {
   formHasError: boolean;
 }
 
+type Validation = string | boolean | number;
+
 class AddBookForm extends Component<Props, State> {
   private titleRef = React.createRef<HTMLInputElement>();
 
@@ -100,10 +102,12 @@ class AddBookForm extends Component<Props, State> {
 
     await this.isEmpty('pagesError', pages);
 
-    if (bookType === 'default') {
-      this.setState({ bookTypeError: 'Please select an option' });
-      formHasError = true;
-    }
+    await this.validateInput('bookTypeError', bookType, 'default', 'Please select an option');
+
+    // if (bookType === 'default') {
+    //   this.setState({ bookTypeError: 'Please select an option' });
+    //   formHasError = true;
+    // }
 
     if (genres.length === 0) {
       this.setState({ genresError: 'Please select at least one genre' });
@@ -166,6 +170,21 @@ class AddBookForm extends Component<Props, State> {
     this.setState({ coverError: '' });
   };
 
+  validateInput = <K extends keyof State>(
+    key: K,
+    value: Validation,
+    condition: Validation,
+    errorMessage: string
+  ) => {
+    return new Promise<void>((resolve) => {
+      if (value === condition) {
+        this.setState({ formHasError: true });
+        this.setState({ [key]: errorMessage } as Pick<State, K>);
+        this.setState({ submitted: false }, resolve);
+      } else resolve();
+    });
+  };
+
   handleimageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -179,20 +198,20 @@ class AddBookForm extends Component<Props, State> {
     }
   };
 
-  isEmpty<K extends keyof State>(key: K, value: string) {
-    return new Promise<void>((resolve) => {
-      if (value!.trim() === '') {
-        console.log('value');
-        this.setState({ formHasError: true });
-        this.setState({ [key]: 'This field must not be empty' } as Pick<State, K>);
-        this.setState({ submitted: false }, () => {
-          resolve();
-        });
-      } else {
-        resolve();
-      }
-    });
-  }
+  // isEmpty<K extends keyof State>(key: K, value: string) {
+  //   return new Promise<void>((resolve) => {
+  //     if (value!.trim() === '') {
+  //       console.log('value');
+  //       this.setState({ formHasError: true });
+  //       this.setState({ [key]: 'This field must not be empty' } as Pick<State, K>);
+  //       this.setState({ submitted: false }, () => {
+  //         resolve();
+  //       });
+  //     } else {
+  //       resolve();
+  //     }
+  //   });
+  // }
 
   render() {
     const {
@@ -202,7 +221,6 @@ class AddBookForm extends Component<Props, State> {
       pagesError,
       bookTypeError,
       genresError,
-      switcherIsPressed,
       switcherError,
       publishedError,
       coverError,

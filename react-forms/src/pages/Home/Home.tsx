@@ -8,7 +8,9 @@ const booksData = [
   {
     title: 'To Kill a Mockingbird',
     author: 'Harper Lee',
-    genre: 'Fiction',
+    genres: ['Fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: 'July 11, 1960',
     pages: 281,
     image:
@@ -17,7 +19,9 @@ const booksData = [
   {
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
-    genre: 'Fiction',
+    genres: ['Fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: 'April 10, 1925',
     pages: 180,
     image:
@@ -26,7 +30,9 @@ const booksData = [
   {
     title: '1984',
     author: 'George Orwell',
-    genre: 'Fiction',
+    genres: ['Fiction'],
+    stock: true,
+    bookType: 'Paperback',
     published: 'June 8, 1949',
     pages: 328,
     image:
@@ -35,7 +41,9 @@ const booksData = [
   {
     title: "The Hitchhiker's Guide to the Galaxy",
     author: 'Douglas Adams',
-    genre: 'Science Fiction',
+    genres: ['Science Fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: 'October 12, 1979',
     pages: 215,
     image:
@@ -44,7 +52,9 @@ const booksData = [
   {
     title: 'The Lord of the Rings',
     author: 'J.R.R. Tolkien',
-    genre: 'Fantasy',
+    genres: ['Fantasy'],
+    stock: true,
+    bookType: 'Hardcover',
     published: 'July 29, 1954',
     pages: 1178,
     image:
@@ -53,7 +63,9 @@ const booksData = [
   {
     title: 'Crime and Punishment',
     author: 'F. M. Doestoevsky',
-    genre: 'Fiction',
+    genres: ['Fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: '1866',
     pages: 430,
     image:
@@ -62,7 +74,9 @@ const booksData = [
   {
     title: 'Anna Karenina',
     author: 'L. N. Tolstoy',
-    genre: 'Fiction',
+    genres: ['Fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: '1878',
     pages: 864,
     image:
@@ -71,7 +85,9 @@ const booksData = [
   {
     title: 'Flowers for Algernon',
     author: 'Daniel Keyes',
-    genre: 'Science fiction',
+    genres: ['Science fiction'],
+    stock: true,
+    bookType: 'Hardcover',
     published: 'April 1959',
     pages: 311,
     image:
@@ -90,7 +106,9 @@ function Home() {
               key={item.title}
               title={item.title}
               author={item.author}
-              genre={item.genre}
+              genres={item.genres}
+              stock={item.stock}
+              bookType={item.bookType}
               image={item.image}
               published={item.published}
               pages={item.pages}

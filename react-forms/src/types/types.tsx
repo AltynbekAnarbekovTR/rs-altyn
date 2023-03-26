@@ -7,7 +7,7 @@ export interface FormData {
   stock: boolean;
   bookType: string;
   published: string;
-  pages: number;
-  //   image: string | null;
-  image: string;
+  pages: string;
+  image: string | null;
+  // image: string;
 }
