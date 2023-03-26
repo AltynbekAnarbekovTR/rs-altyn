@@ -8,7 +8,7 @@
 }
 
 .add-book-form .input-container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .add-book-form input {
@@ -30,7 +30,6 @@
 
 label {
     display: block;
-    /* margin-top: 10px; */
 }
 
 .add-book-form .button-container {
@@ -78,10 +77,6 @@ label {
     border: 1px solid black;
 }
 
-.genres {
-    margin-top: 20px;
-}
-
 .genres label {
     display: inline-block;
     border-right: 1px solid black;
@@ -94,6 +89,9 @@ label {
 }
 
 .error {
+    padding: 0;
+    margin: 0;
+    height: 30px;
     color: red;
 }
 

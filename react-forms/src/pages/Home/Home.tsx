@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../../components/Card/Card';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from './Home.module.css';
-// import MainPage from '../../components/MainPage/MainPage';
 
 const booksData = [
   {

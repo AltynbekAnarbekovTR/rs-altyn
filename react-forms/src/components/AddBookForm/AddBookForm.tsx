@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './AddBookForm.module.css';
 import { FormData } from '../../types/types';
 import TextInput from './TextInput';
+import ErrorMessage from './ErrorMessage';
 
 interface Props {
   onSubmit: (formData: FormData) => void;
@@ -21,8 +22,6 @@ interface State {
   submitted: boolean;
   formHasError: boolean;
 }
-
-// type Validation = string | boolean | number | null;
 
 class AddBookForm extends Component<Props, State> {
   private titleRef = React.createRef<HTMLInputElement>();
@@ -241,12 +240,7 @@ class AddBookForm extends Component<Props, State> {
           id="title"
           refer={this.titleRef}
         />
-        {titleError !== '' && (
-          <p data-testid="titleError" className={styles.error}>
-            {' '}
-            {titleError}{' '}
-          </p>
-        )}
+        <ErrorMessage testId="titleError" inputError={titleError} className={styles.error} />
 
         <TextInput
           className={styles['input-container']}
@@ -254,12 +248,8 @@ class AddBookForm extends Component<Props, State> {
           id="author"
           refer={this.authorRef}
         />
-        {authorError !== '' && (
-          <p data-testid="authorError" className={styles.error}>
-            {' '}
-            {authorError}{' '}
-          </p>
-        )}
+        <ErrorMessage testId="authorError" inputError={authorError} className={styles.error} />
+
         <div className={styles['space-between']}>
           <div className={styles['input-container']}>
             <label htmlFor="bookType">
@@ -272,15 +262,10 @@ class AddBookForm extends Component<Props, State> {
                 <option value="Paperback">Paperback</option>
                 <option value="eBook">eBook</option>
               </select>
-              {bookTypeError !== '' && (
-                <p data-testid="bookTypeError" className={styles.error}>
-                  {' '}
-                  {bookTypeError}{' '}
-                </p>
-              )}
             </label>
           </div>
         </div>
+        <ErrorMessage testId="bookTypeError" inputError={bookTypeError} className={styles.error} />
 
         <div className={styles.genres}>
           <label className={styles.stock} htmlFor="stock">
@@ -299,13 +284,8 @@ class AddBookForm extends Component<Props, State> {
             Fantasy
             <input data-testid="fantasy" id="fantasy" type="checkbox" ref={this.scifiRef} />
           </label>
-          {genresError !== '' && (
-            <p data-testid="genresError" className={styles.error}>
-              {' '}
-              {genresError}{' '}
-            </p>
-          )}
         </div>
+        <ErrorMessage testId="genresError" inputError={genresError} className={styles.error} />
         <div className="switch-field">
           <div className="switch-title">Availabity</div>
           <input
@@ -314,7 +294,6 @@ class AddBookForm extends Component<Props, State> {
             id="switch_left"
             name="switchToggle"
             value="In Stock"
-            onChange={(e) => console.log('In Stock', e.target.value)}
             ref={this.stockRef}
             onClick={() => {
               this.setState({ switcherIsPressed: true });
@@ -327,50 +306,33 @@ class AddBookForm extends Component<Props, State> {
             id="switch_right"
             name="switchToggle"
             value="Out of Stock"
-            onChange={(e) => console.log('Out of stock', e.target.value)}
             onClick={() => {
               this.setState({ switcherIsPressed: true });
             }}
             ref={this.outOfStockRef}
           />
           <label htmlFor="switch_right">Out of Stock</label>
-          {switcherError !== '' && (
-            <p data-testid="stockError" className={styles.error}>
-              {' '}
-              {switcherError}{' '}
-            </p>
-          )}
+          <ErrorMessage testId="stockError" inputError={switcherError} className={styles.error} />
         </div>
+
         <div>
           <label className="input-field date" htmlFor="published">
             Published:
-            <input
-              onChange={(e) => console.log(e)}
-              data-testid="published"
-              id="published"
-              type="date"
-              ref={this.publishedRef}
-            />
-            {publishedError !== '' && (
-              <p data-testid="publishedError" className={styles.error}>
-                {' '}
-                {publishedError}{' '}
-              </p>
-            )}
+            <input data-testid="published" id="published" type="date" ref={this.publishedRef} />
           </label>
         </div>
+        <ErrorMessage
+          testId="publishedError"
+          inputError={publishedError}
+          className={styles.error}
+        />
         <TextInput
           className={styles['input-container']}
           label="Page count:"
           id="pages"
           refer={this.pagesRef}
         />
-        {pagesError !== '' && (
-          <p data-testid="pagesError" className={styles.error}>
-            {' '}
-            {pagesError}{' '}
-          </p>
-        )}
+        <ErrorMessage testId="pagesError" inputError={pagesError} className={styles.error} />
         <div className={styles['input-container']}>
           <label htmlFor="cover">
             Cover:
@@ -381,12 +343,7 @@ class AddBookForm extends Component<Props, State> {
               ref={this.imageRef}
               onChange={this.handleimageChange}
             />
-            {coverError !== '' && (
-              <p data-testid="coverError" className={styles.error}>
-                {' '}
-                {coverError}{' '}
-              </p>
-            )}
+            <ErrorMessage testId="coverError" inputError={coverError} className={styles.error} />
             {imagePreviewUrl && (
               <div className={styles.preview}>
                 <img src={imagePreviewUrl} alt="Preview" />
