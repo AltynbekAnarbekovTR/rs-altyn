@@ -1,15 +1,7 @@
 import React from 'react';
 import styles from './Card.module.css';
 import { FormData } from '../../types/types';
-
-// type Props = {
-//   title: string;
-//   author: string;
-//   genre: string;
-//   image: string;
-//   published: string;
-//   pages: string | number;
-// };
+import { v4 } from 'uuid';
 
 function Card({ title, author, genres, image, published, pages, bookType, stock }: FormData) {
   return (
@@ -18,27 +10,31 @@ function Card({ title, author, genres, image, published, pages, bookType, stock 
         <img src={image} alt="Book cover (need internet)" />
       </div>
       <div className={styles.description}>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 data-testid="card-title" className={styles.title}>
+          {title}
+        </h3>
         <p className={styles.author}>
-          by <span>{author}</span>
+          by <span data-testid="card-author">{author}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
           <span>Genre:</span>{' '}
           {genres?.map((item) => (
-            <span>{item}</span>
+            <span data-testid="card-genres" key={v4()}>
+              {item}
+            </span>
           ))}
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Type:</span> <span>{bookType}</span>
+          <span>Type:</span> <span data-testid="card-bookType">{bookType}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Published:</span> <span>{published}</span>
+          <span>Published:</span> <span data-testid="card-published">{published}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Pages:</span> <span>{pages}</span>
+          <span>Pages:</span> <span data-testid="card-pages">{pages}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>In Stock:</span> <span>{stock ? 'Yes' : 'No'}</span>
+          <span>In Stock:</span> <span data-testid="card-stock">{stock ? 'Yes' : 'No'}</span>
         </p>
       </div>
     </li>

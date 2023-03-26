@@ -8,13 +8,15 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run --coverage",
-    "testing": "vitest run AddBookForm.test.tsx",
+    "testing": "vitest run AddBook.test.tsx",
     "lint": "eslint \"**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@types/uuid": "^9.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.0.1",

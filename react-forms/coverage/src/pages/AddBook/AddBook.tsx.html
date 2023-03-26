@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -116,15 +116,7 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -137,36 +129,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,8 +170,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import { v4 } from 'uuid';
 import Card from '../../components/Card/Card';
-&nbsp;
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
 import { FormData } from '../../types/types';
@@ -196,18 +180,8 @@ interface State {
   cards: FormData[];
 }
 &nbsp;
-// interface FormData {
-//   title: string;
-//   author: string;
-//   genre: string;
-//   published: string;
-//   pages: string;
-//   stock: boolean;
-//   image: string | null;
-// }
-&nbsp;
 class AddBook extends React.Component&lt;{}, State&gt; {
-  constructor(props = {}) {
+  constructor(props = <span class="branch-0 cbranch-no" title="branch not covered" >{}) {</span>
     super(props);
     this.state = {
       cards: [],
@@ -226,19 +200,21 @@ class AddBook extends React.Component&lt;{}, State&gt; {
       &lt;div className="container"&gt;
         &lt;AddBookForm onSubmit={this.handleSubmit} /&gt;
         &lt;ul className={styles.cards} data-testid="cards"&gt;
-          {cards.map((item) =&gt; (
-            &lt;Card
-              key={item.title}
-              title={item.title}
-              author={item.author}
-              genres={item.genres}
-              image={item.image}
-              published={item.published}
-              pages={item.pages}
-              stock={item.stock}
-              bookType={item.bookType}
-            /&gt;
-          ))}
+          {cards.map((item) =&gt; {
+            return (
+              &lt;Card
+                key={v4()}
+                title={item.title}
+                author={item.author}
+                genres={item.genres}
+                image={item.image}
+                published={item.published}
+                pages={item.pages}
+                stock={item.stock}
+                bookType={item.bookType}
+              /&gt;
+            );
+          })}
         &lt;/ul&gt;
       &lt;/div&gt;
     );
@@ -253,7 +229,7 @@ export default AddBook;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-25T22:03:24.951Z
+                at 2023-03-26T15:15:33.182Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

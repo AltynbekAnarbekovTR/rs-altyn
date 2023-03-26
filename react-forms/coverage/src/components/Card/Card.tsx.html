@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -107,11 +107,14 @@
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L45'></a><a href='#L45'>45</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,17 +141,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,15 +154,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import styles from './Card.module.css';
 import { FormData } from '../../types/types';
-&nbsp;
-// type Props = {
-//   title: string;
-//   author: string;
-//   genre: string;
-//   image: string;
-//   published: string;
-//   pages: string | number;
-// };
+import { v4 } from 'uuid';
 &nbsp;
 function Card({ title, author, genres, image, published, pages, bookType, stock }: FormData) {
   return (
@@ -179,27 +163,31 @@ function Card({ title, author, genres, image, published, pages, bookType, stock 
         &lt;img src={image} alt="Book cover (need internet)" /&gt;
       &lt;/div&gt;
       &lt;div className={styles.description}&gt;
-        &lt;h3 className={styles.title}&gt;{title}&lt;/h3&gt;
+        &lt;h3 data-testid="card-title" className={styles.title}&gt;
+          {title}
+        &lt;/h3&gt;
         &lt;p className={styles.author}&gt;
-          by &lt;span&gt;{author}&lt;/span&gt;
+          by &lt;span data-testid="card-author"&gt;{author}&lt;/span&gt;
         &lt;/p&gt;
         &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
           &lt;span&gt;Genre:&lt;/span&gt;{' '}
           {genres?.map((item) =&gt; (
-            &lt;span&gt;{item}&lt;/span&gt;
+            &lt;span data-testid="card-genres" key={v4()}&gt;
+              {item}
+            &lt;/span&gt;
           ))}
         &lt;/p&gt;
         &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
-          &lt;span&gt;Type:&lt;/span&gt; &lt;span&gt;{bookType}&lt;/span&gt;
+          &lt;span&gt;Type:&lt;/span&gt; &lt;span data-testid="card-bookType"&gt;{bookType}&lt;/span&gt;
         &lt;/p&gt;
         &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
-          &lt;span&gt;Published:&lt;/span&gt; &lt;span&gt;{published}&lt;/span&gt;
+          &lt;span&gt;Published:&lt;/span&gt; &lt;span data-testid="card-published"&gt;{published}&lt;/span&gt;
         &lt;/p&gt;
         &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
-          &lt;span&gt;Pages:&lt;/span&gt; &lt;span&gt;{pages}&lt;/span&gt;
+          &lt;span&gt;Pages:&lt;/span&gt; &lt;span data-testid="card-pages"&gt;{pages}&lt;/span&gt;
         &lt;/p&gt;
         &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
-          &lt;span&gt;In Stock:&lt;/span&gt; &lt;span&gt;{stock ? 'Yes' : 'No'}&lt;/span&gt;
+          &lt;span&gt;In Stock:&lt;/span&gt; &lt;span data-testid="card-stock"&gt;{stock ? 'Yes' : <span class="branch-1 cbranch-no" title="branch not covered" >'No'}&lt;</span>/span&gt;
         &lt;/p&gt;
       &lt;/div&gt;
     &lt;/li&gt;
@@ -214,7 +202,7 @@ export default Card;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-25T22:03:24.951Z
+                at 2023-03-26T15:15:33.182Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

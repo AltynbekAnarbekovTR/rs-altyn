@@ -1,6 +1,6 @@
 import React from 'react';
+import { v4 } from 'uuid';
 import Card from '../../components/Card/Card';
-
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
 import { FormData } from '../../types/types';
@@ -8,16 +8,6 @@ import { FormData } from '../../types/types';
 interface State {
   cards: FormData[];
 }
-
-// interface FormData {
-//   title: string;
-//   author: string;
-//   genre: string;
-//   published: string;
-//   pages: string;
-//   stock: boolean;
-//   image: string | null;
-// }
 
 class AddBook extends React.Component<{}, State> {
   constructor(props = {}) {
@@ -39,19 +29,21 @@ class AddBook extends React.Component<{}, State> {
       <div className="container">
         <AddBookForm onSubmit={this.handleSubmit} />
         <ul className={styles.cards} data-testid="cards">
-          {cards.map((item) => (
-            <Card
-              key={item.title}
-              title={item.title}
-              author={item.author}
-              genres={item.genres}
-              image={item.image}
-              published={item.published}
-              pages={item.pages}
-              stock={item.stock}
-              bookType={item.bookType}
-            />
-          ))}
+          {cards.map((item) => {
+            return (
+              <Card
+                key={v4()}
+                title={item.title}
+                author={item.author}
+                genres={item.genres}
+                image={item.image}
+                published={item.published}
+                pages={item.pages}
+                stock={item.stock}
+                bookType={item.bookType}
+              />
+            );
+          })}
         </ul>
       </div>
     );

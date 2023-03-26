@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './AddBookForm.module.css';
 import { FormData } from '../../types/types';
+import TextInput from './TextInput';
 
 interface Props {
   onSubmit: (formData: FormData) => void;
@@ -9,7 +10,7 @@ interface Props {
 interface State {
   titleError: string;
   authorError: string;
-  imagePreviewUrl: string | null;
+  imagePreviewUrl: string | undefined;
   pagesError: string;
   genresError: string;
   bookTypeError: string;
@@ -21,7 +22,7 @@ interface State {
   formHasError: boolean;
 }
 
-type Validation = string | boolean | number;
+// type Validation = string | boolean | number | null;
 
 class AddBookForm extends Component<Props, State> {
   private titleRef = React.createRef<HTMLInputElement>();
@@ -55,7 +56,7 @@ class AddBookForm extends Component<Props, State> {
       titleError: '',
       authorError: '',
       pagesError: '',
-      imagePreviewUrl: null,
+      imagePreviewUrl: '',
       bookTypeError: '',
       genresError: '',
       switcherIsPressed: false,
@@ -69,7 +70,6 @@ class AddBookForm extends Component<Props, State> {
 
   handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let formHasError = false;
     const { imagePreviewUrl } = this.state;
     const title = this.titleRef.current?.value || '';
     const published = this.publishedRef.current?.value || '';
@@ -91,46 +91,59 @@ class AddBookForm extends Component<Props, State> {
     const genres = genresObjects.map((item) => item.name);
 
     this.resetErrors();
-    await this.isEmpty('titleError', title);
-    await this.isEmpty('authorError', author);
-    if (
-      author !== '' &&
-      author.split(' ').every((word) => word[0].toUpperCase() === word[0]) === false
-    ) {
-      this.setState({ authorError: 'Every word must start from an uppercase letter' });
+
+    await this.validateInput('titleError', title, '', 'This field must not be empty');
+
+    await this.validateInput('authorError', author, '', 'This field must not be empty');
+    if (author !== '') {
+      await this.validateInput(
+        'authorError',
+        author.split(' ').every((word) => word[0].toUpperCase() === word[0]),
+        false,
+        'Every word must start from an uppercase letter'
+      );
     }
 
-    await this.isEmpty('pagesError', pages);
+    await this.validateInput('pagesError', pages, '', 'This field must not be empty');
+    if (pages !== '') {
+      await this.validateInput(
+        'pagesError',
+        /^\d+$/.test(pages),
+        false,
+        'Pages count must be a number'
+      );
+    }
 
     await this.validateInput('bookTypeError', bookType, 'default', 'Please select an option');
 
-    // if (bookType === 'default') {
-    //   this.setState({ bookTypeError: 'Please select an option' });
-    //   formHasError = true;
-    // }
+    await this.validateInput('genresError', genres.length, 0, 'Please select at least one genre');
 
-    if (genres.length === 0) {
-      this.setState({ genresError: 'Please select at least one genre' });
-      formHasError = true;
+    await this.validateInput(
+      'switcherError',
+      this.state.switcherIsPressed,
+      false,
+      'Please choose an option'
+    );
+
+    await this.validateInput('publishedError', published, '', 'This field must not be empty');
+    if (published) {
+      await this.validateInput(
+        'publishedError',
+        Date.parse(new Date().toISOString().split('T')[0]) - Date.parse(published) > 0,
+        false,
+        'Please choose a date before today'
+      );
     }
 
-    await this.isEmpty('publishedError', published);
-    if (!this.state.switcherIsPressed) {
-      this.setState({ switcherError: 'Please choose an option' });
-      formHasError = true;
-    }
-
-    if (published === '') {
-      this.setState({ publishedError: 'Please specify publication date' });
-      formHasError = true;
-    }
-
-    if (!this.state.imagePreviewUrl) {
-      this.setState({ coverError: 'Please choose an image' });
-      formHasError = true;
-    }
+    await this.validateInput(
+      'coverError',
+      this.state.imagePreviewUrl,
+      '',
+      'Please choose an image'
+    );
 
     if (this.state.formHasError) return;
+
     const formData: FormData = {
       title,
       published,
@@ -141,6 +154,7 @@ class AddBookForm extends Component<Props, State> {
       pages,
       image: imagePreviewUrl,
     };
+
     const { onSubmit } = this.props;
     onSubmit(formData);
     this.titleRef.current!.value = '';
@@ -160,6 +174,7 @@ class AddBookForm extends Component<Props, State> {
   };
 
   resetErrors = () => {
+    this.setState({ formHasError: false });
     this.setState({ titleError: '' });
     this.setState({ authorError: '' });
     this.setState({ bookTypeError: '' });
@@ -170,10 +185,10 @@ class AddBookForm extends Component<Props, State> {
     this.setState({ coverError: '' });
   };
 
-  validateInput = <K extends keyof State>(
+  validateInput = <K extends keyof State, T>(
     key: K,
-    value: Validation,
-    condition: Validation,
+    value: T,
+    condition: T,
     errorMessage: string
   ) => {
     return new Promise<void>((resolve) => {
@@ -194,24 +209,9 @@ class AddBookForm extends Component<Props, State> {
       };
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imagePreviewUrl: null });
+      this.setState({ imagePreviewUrl: undefined });
     }
   };
-
-  // isEmpty<K extends keyof State>(key: K, value: string) {
-  //   return new Promise<void>((resolve) => {
-  //     if (value!.trim() === '') {
-  //       console.log('value');
-  //       this.setState({ formHasError: true });
-  //       this.setState({ [key]: 'This field must not be empty' } as Pick<State, K>);
-  //       this.setState({ submitted: false }, () => {
-  //         resolve();
-  //       });
-  //     } else {
-  //       resolve();
-  //     }
-  //   });
-  // }
 
   render() {
     const {
@@ -226,31 +226,42 @@ class AddBookForm extends Component<Props, State> {
       coverError,
       submitted,
     } = this.state;
+
     return (
-      <form className={styles['add-book-form']} onSubmit={this.handleSubmit}>
+      <form
+        data-testid="addBookForm"
+        className={styles['add-book-form']}
+        onSubmit={this.handleSubmit}
+      >
         <h2>Add Book</h2>
-        <div>
-          <label htmlFor="title">
-            Title:
-            <input
-              onChange={(e) => console.log(e)}
-              data-testid="title"
-              id="title"
-              type="text"
-              ref={this.titleRef}
-            />
-            {titleError !== '' && <p className={styles.error}> {titleError} </p>}
-          </label>
-        </div>
-        <div>
-          <label htmlFor="author">
-            Author:
-            <input id="author" type="text" ref={this.authorRef} />
-            {authorError !== '' && <p className={styles.error}> {authorError} </p>}
-          </label>
-        </div>
+
+        <TextInput
+          className={styles['input-container']}
+          label="Title:"
+          id="title"
+          refer={this.titleRef}
+        />
+        {titleError !== '' && (
+          <p data-testid="titleError" className={styles.error}>
+            {' '}
+            {titleError}{' '}
+          </p>
+        )}
+
+        <TextInput
+          className={styles['input-container']}
+          label="Author:"
+          id="author"
+          refer={this.authorRef}
+        />
+        {authorError !== '' && (
+          <p data-testid="authorError" className={styles.error}>
+            {' '}
+            {authorError}{' '}
+          </p>
+        )}
         <div className={styles['space-between']}>
-          <div>
+          <div className={styles['input-container']}>
             <label htmlFor="bookType">
               Type:
               <select id="bookType" defaultValue="default" ref={this.bookTypeRef}>
@@ -261,7 +272,12 @@ class AddBookForm extends Component<Props, State> {
                 <option value="Paperback">Paperback</option>
                 <option value="eBook">eBook</option>
               </select>
-              {bookTypeError !== '' && <p className={styles.error}> {bookTypeError} </p>}
+              {bookTypeError !== '' && (
+                <p data-testid="bookTypeError" className={styles.error}>
+                  {' '}
+                  {bookTypeError}{' '}
+                </p>
+              )}
             </label>
           </div>
         </div>
@@ -283,10 +299,15 @@ class AddBookForm extends Component<Props, State> {
             Fantasy
             <input data-testid="fantasy" id="fantasy" type="checkbox" ref={this.scifiRef} />
           </label>
-          {genresError !== '' && <p className={styles.error}> {genresError} </p>}
+          {genresError !== '' && (
+            <p data-testid="genresError" className={styles.error}>
+              {' '}
+              {genresError}{' '}
+            </p>
+          )}
         </div>
         <div className="switch-field">
-          <div className="switch-title">Timeframe</div>
+          <div className="switch-title">Availabity</div>
           <input
             data-testid="inStock"
             type="radio"
@@ -313,7 +334,12 @@ class AddBookForm extends Component<Props, State> {
             ref={this.outOfStockRef}
           />
           <label htmlFor="switch_right">Out of Stock</label>
-          {switcherError !== '' && <p className={styles.error}> {switcherError} </p>}
+          {switcherError !== '' && (
+            <p data-testid="stockError" className={styles.error}>
+              {' '}
+              {switcherError}{' '}
+            </p>
+          )}
         </div>
         <div>
           <label className="input-field date" htmlFor="published">
@@ -325,17 +351,27 @@ class AddBookForm extends Component<Props, State> {
               type="date"
               ref={this.publishedRef}
             />
-            {publishedError !== '' && <p className={styles.error}> {publishedError} </p>}
+            {publishedError !== '' && (
+              <p data-testid="publishedError" className={styles.error}>
+                {' '}
+                {publishedError}{' '}
+              </p>
+            )}
           </label>
         </div>
-        <div>
-          <label htmlFor="pages">
-            Page count:
-            <input id="pages" type="number" ref={this.pagesRef} />
-            {pagesError !== '' && <p className={styles.error}> {pagesError} </p>}
-          </label>
-        </div>
-        <div>
+        <TextInput
+          className={styles['input-container']}
+          label="Page count:"
+          id="pages"
+          refer={this.pagesRef}
+        />
+        {pagesError !== '' && (
+          <p data-testid="pagesError" className={styles.error}>
+            {' '}
+            {pagesError}{' '}
+          </p>
+        )}
+        <div className={styles['input-container']}>
           <label htmlFor="cover">
             Cover:
             <input
@@ -345,7 +381,12 @@ class AddBookForm extends Component<Props, State> {
               ref={this.imageRef}
               onChange={this.handleimageChange}
             />
-            {coverError !== '' && <p className={styles.error}> {coverError} </p>}
+            {coverError !== '' && (
+              <p data-testid="coverError" className={styles.error}>
+                {' '}
+                {coverError}{' '}
+              </p>
+            )}
             {imagePreviewUrl && (
               <div className={styles.preview}>
                 <img src={imagePreviewUrl} alt="Preview" />
@@ -353,7 +394,9 @@ class AddBookForm extends Component<Props, State> {
             )}
           </label>
         </div>
-        <button type="submit">Submit</button>
+        <div className={styles['button-container']}>
+          <button type="submit">Submit</button>
+        </div>
         {submitted && <p className={styles.submitted}>Card successfully created</p>}
       </form>
     );

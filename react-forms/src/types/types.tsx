@@ -8,6 +8,6 @@ export interface FormData {
   bookType: string;
   published: string;
   pages: string;
-  image: string | null;
+  image: string | undefined;
   // image: string;
 }
