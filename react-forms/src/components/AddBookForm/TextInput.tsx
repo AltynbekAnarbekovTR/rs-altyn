@@ -8,6 +8,9 @@ interface TextInputProps {
 }
 
 export class TextInput extends Component<TextInputProps, {}> {
+  logger = () => {
+    console.log('Logger');
+  };
   render() {
     return (
       <div className={this.props.className}>

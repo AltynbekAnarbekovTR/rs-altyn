@@ -48,6 +48,8 @@ class AddBookForm extends Component<Props, State> {
 
   private outOfStockRef = React.createRef<HTMLInputElement>();
 
+  private formRef = React.createRef<HTMLFormElement>();
+
   constructor(props: Props) {
     super(props);
 
@@ -156,18 +158,8 @@ class AddBookForm extends Component<Props, State> {
 
     const { onSubmit } = this.props;
     onSubmit(formData);
-    this.titleRef.current!.value = '';
-    this.authorRef.current!.value = '';
-    this.bookTypeRef.current!.value = 'default';
-    this.fictionRef.current!.checked = false;
-    this.nonFictionRef.current!.checked = false;
-    this.fantasyRef.current!.checked = false;
-    this.scifiRef.current!.checked = false;
-    this.stockRef.current!.checked = false;
-    this.outOfStockRef.current!.checked = false;
-    this.publishedRef.current!.value = '';
-    this.pagesRef.current!.value = '';
-    this.imageRef.current!.value = '';
+    this.formRef.current?.reset();
+    this.setState({ switcherIsPressed: false });
     this.setState({ imagePreviewUrl: '' });
     this.setState({ submitted: true });
   };
@@ -228,6 +220,7 @@ class AddBookForm extends Component<Props, State> {
 
     return (
       <form
+        ref={this.formRef}
         data-testid="addBookForm"
         className={styles['add-book-form']}
         onSubmit={this.handleSubmit}

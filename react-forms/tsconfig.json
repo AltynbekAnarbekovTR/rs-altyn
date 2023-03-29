@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "dom",
-      "esnext",
-      "dom.iterable"
-    ],
+    "lib": ["dom", "esnext", "dom.iterable"],
+    "allowJs": false,
+    "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
@@ -19,11 +18,7 @@
     "baseUrl": "./src",
     "resolveJsonModule": true
   },
-  "include": [
-    "vite.config.ts",
-    ".eslintrc.cjs",
-    "src"
-  ],
+  "include": ["vite.config.ts", ".eslintrc.cjs", "src"],
   "references": [
     {
       "path": "./tsconfig.node.json"

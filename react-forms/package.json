@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prebuild": "eslint . && prettier --check .",
+    "prettier": "prettier --write .",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
