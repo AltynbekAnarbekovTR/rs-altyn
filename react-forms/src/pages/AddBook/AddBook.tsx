@@ -4,6 +4,7 @@ import Card from '../../components/Card/Card';
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
 import { FormData } from '../../types/types';
+import ParentForm from '../../components/AddBookForm/ParentForm';
 
 interface State {
   cards: FormData[];
@@ -28,6 +29,7 @@ class AddBook extends React.Component<{}, State> {
     return (
       <div className="container">
         <AddBookForm onSubmit={this.handleSubmit} />
+        <ParentForm />
         <ul className={styles.cards} data-testid="cards">
           {cards.map((item) => {
             return (

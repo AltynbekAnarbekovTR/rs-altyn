@@ -10,7 +10,7 @@
 //     super(props);
 
 //     this.state = {
-//       searchValue: localStorage.getItem('searchValue') || '',
+//       searchValue: '',
 //     };
 //   }
 
@@ -32,26 +32,26 @@
 //     const { searchValue } = this.state;
 
 //     return (
-// <form className={styles.search}>
-//   <div className={styles.container}>
-//     <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
-//       <div className={styles.search_box}>
-//         <input
-//           type="text"
-//           className={styles.input}
-//           value={searchValue}
-//           onChange={(e) => {
-//             this.setState(() => ({ searchValue: e.target.value }));
-//           }}
-//           placeholder="search..."
-//         />
-//         <div className={`${styles.btn} ${styles.btn_common}`}>
-//           <i className="fas fa-search" />
+//       <form className={styles.search}>
+//         <div className={styles.container}>
+//           <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
+//             <div className={styles.search_box}>
+//               <input
+//                 type="text"
+//                 className={styles.input}
+//                 value={searchValue}
+//                 onChange={(e) => {
+//                   this.setState(() => ({ searchValue: e.target.value }));
+//                 }}
+//                 placeholder="search..."
+//               />
+//               <div className={`${styles.btn} ${styles.btn_common}`}>
+//                 <i className="fas fa-search" />
+//               </div>
+//             </div>
+//           </div>
 //         </div>
-//       </div>
-//     </div>
-//   </div>
-// </form>
+//       </form>
 //     );
 //   }
 // }
@@ -64,11 +64,26 @@ import styles from './SearchBar.module.css';
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
 
+  const searchInputHandler = (searchValue: string): void => {
+    if (searchValue.trim() !== '') {
+      setSearchValue(searchValue);
+      localStorage.setItem('searchValue', searchValue);
+    }
+  };
+
   useEffect(() => {
     const savedValue = localStorage.getItem('searchValue');
     if (savedValue?.trim()) {
       setSearchValue(savedValue);
     }
+
+    // return () => {
+    //   console.log('Debounce start');
+    //   if (searchValue.trim() !== '') {
+    //     console.log('setLocalStorage');
+    //     localStorage.setItem('searchValue', searchValue);
+    //   }
+    // };
   }, []);
 
   return (
@@ -81,7 +96,7 @@ const SearchBar = () => {
               className={styles.input}
               value={searchValue}
               onChange={(e) => {
-                setSearchValue(e.target.value);
+                searchInputHandler(e.target.value);
               }}
               placeholder="search..."
             />

@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { FormData } from '../../types/types';
 
-interface TextInputProps {
+export interface TextInputProps {
   className: string;
   label: string;
   id: string;
-  refer: React.RefObject<HTMLInputElement>;
+  name: keyof FormData;
+  register: UseFormRegister<FormData>;
+  // refer: React.RefObject<HTMLInputElement>;
 }
 
-export class TextInput extends Component<TextInputProps, {}> {
-  logger = () => {
-    console.log('Logger');
-  };
-  render() {
-    return (
-      <div className={this.props.className}>
-        <label htmlFor={this.props.id}>
-          {this.props.label}
-          <input data-testid="title" id={this.props.id} type="text" ref={this.props.refer} />
-        </label>
-      </div>
-    );
-  }
-}
+const TextInput = ({ className, label, id, name, register }: TextInputProps) => {
+  return (
+    <div className={className}>
+      <label htmlFor={id}>
+        {label}
+        <input {...register(name, { required: true })} data-testid="title" id={id} type="text" />
+      </label>
+    </div>
+  );
+};
 
 export default TextInput;
