@@ -12,6 +12,10 @@ export interface TextInputProps {
 }
 
 const TextInput = ({ className, label, id, name, register }: TextInputProps) => {
+  const validateUppercase = (value: string) => {
+    const isUppercase = /[A-Z]/.test(value);
+    return isUppercase || 'Name must include at least one uppercase letter';
+  };
   return (
     <div className={className}>
       <label htmlFor={id}>

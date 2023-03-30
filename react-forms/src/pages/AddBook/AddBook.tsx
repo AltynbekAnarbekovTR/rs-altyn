@@ -19,6 +19,7 @@ class AddBook extends React.Component<{}, State> {
   }
 
   handleSubmit = (formData: FormData) => {
+    console.log(formData);
     this.setState((prevState) => ({
       cards: [...prevState.cards, formData],
     }));
@@ -28,8 +29,8 @@ class AddBook extends React.Component<{}, State> {
     const { cards } = this.state;
     return (
       <div className="container">
-        <AddBookForm onSubmit={this.handleSubmit} />
-        <ParentForm />
+        {/* <AddBookForm onSubmit={this.handleSubmit} /> */}
+        <ParentForm onSubmit={this.handleSubmit} />
         <ul className={styles.cards} data-testid="cards">
           {cards.map((item) => {
             return (
@@ -38,9 +39,9 @@ class AddBook extends React.Component<{}, State> {
                 title={item.title}
                 author={item.author}
                 genres={item.genres}
-                image={item.image}
+                cover={item.cover}
                 published={item.published}
-                pages={item.pages}
+                pageCount={item.pageCount}
                 stock={item.stock}
                 bookType={item.bookType}
               />

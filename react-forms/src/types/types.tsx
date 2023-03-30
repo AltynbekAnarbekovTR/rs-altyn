@@ -1,10 +1,12 @@
 export interface FormData {
   title: string;
   author: string;
-  genres: string[];
-  stock: boolean;
   bookType: string;
+  genres: string[];
+  // stock: boolean;
+  stock: string;
   published: string;
-  pages: string;
-  image: string | undefined;
+  pageCount: number;
+  // image: string | undefined;
+  cover: FileList;
 }

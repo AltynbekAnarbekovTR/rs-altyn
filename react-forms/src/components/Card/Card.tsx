@@ -3,11 +3,15 @@ import styles from './Card.module.css';
 import { FormData } from '../../types/types';
 import { v4 } from 'uuid';
 
-function Card({ title, author, genres, image, published, pages, bookType, stock }: FormData) {
+function Card({ title, author, genres, cover, published, pageCount, bookType, stock }: FormData) {
+  console.log(cover);
+
+  const imageUrl = URL.createObjectURL(cover[0]);
+
   return (
     <li className={styles.card}>
       <div className={styles.cover}>
-        <img src={image} alt="Book cover (need internet)" />
+        <img src={imageUrl} alt="Book cover (need internet)" />
       </div>
       <div className={styles.description}>
         <h3 data-testid="card-title" className={styles.title}>
@@ -31,7 +35,7 @@ function Card({ title, author, genres, image, published, pages, bookType, stock 
           <span>Published:</span> <span data-testid="card-published">{published}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Pages:</span> <span data-testid="card-pages">{pages}</span>
+          <span>Pages:</span> <span data-testid="card-pages">{pageCount}</span>
         </p>
         <p className={`${styles['flex-between']} ${styles.details}`}>
           <span>In Stock:</span> <span data-testid="card-stock">{stock ? 'Yes' : 'No'}</span>

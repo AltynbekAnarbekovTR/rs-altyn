@@ -8,7 +8,7 @@
 }
 
 .add-book-form .input-container {
-  /* margin-top: 20px; */
+  margin-top: 20px;
 }
 
 .add-book-form input {
@@ -32,6 +32,37 @@ label {
   display: block;
 }
 
+.book-type {
+  border: 1px solid black;
+}
+
+
+.genres {
+  margin-top: 20px;
+}
+
+.genres label {
+  display: inline-block;
+  border-right: 1px solid black;
+  padding: 0px 5px;
+  margin-right: 7px;
+}
+
+.genres input {
+  width: unset;
+}
+
+.stock input {
+  width: 20px;
+  display: inline;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .add-book-form .button-container {
   display: flex;
   justify-content: right;
@@ -50,16 +81,7 @@ label {
   margin-bottom: 30px;
 }
 
-.stock input {
-  width: 20px;
-  display: inline;
-}
 
-.preview {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .preview img {
   width: 300px;
@@ -75,12 +97,6 @@ label {
   border: 1px solid black;
 }
 
-.genres label {
-  display: inline-block;
-  border-right: 1px solid black;
-  padding: 0px 5px;
-  margin-right: 7px;
-}
 
 .submitted {
   color: green;
