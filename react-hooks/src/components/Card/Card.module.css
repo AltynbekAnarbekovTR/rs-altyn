@@ -1,0 +1,49 @@
+.card {
+  margin-top: 20px;
+  width: 200px;
+  border-radius: 5px;
+  float: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.description {
+  padding: 10px 0px;
+}
+
+.title {
+  height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 19px;
+  margin: 0;
+  font-family: 'Inter';
+}
+
+.author {
+  padding: 10px 0;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.author span {
+  color: blue;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  font-family: 'Inter';
+  font-size: 14px;
+  color: rgb(78, 78, 78);
+}
