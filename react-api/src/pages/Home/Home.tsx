@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from '../../components/Card/Card';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from './Home.module.css';
@@ -86,7 +86,19 @@ const booksData = [
   },
 ];
 
+const getBooks = async () => {
+  // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}`);
+  const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=flowers`);
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
 function Home() {
+  useEffect(() => {
+    getBooks();
+  }, []);
+
   return (
     <div className="container">
       <section>
