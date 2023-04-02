@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680207125303" clover="3.2.0">
-  <project timestamp="1680207125304" name="All files">
-    <metrics statements="50" coveredstatements="49" conditionals="36" coveredconditionals="31" methods="28" coveredmethods="28" elements="114" coveredelements="108" complexity="0" loc="50" ncloc="50" packages="9" files="10" classes="10"/>
+<coverage generated="1680446389505" clover="3.2.0">
+  <project timestamp="1680446389505" name="All files">
+    <metrics statements="48" coveredstatements="47" conditionals="36" coveredconditionals="31" methods="28" coveredmethods="28" elements="112" coveredelements="106" complexity="0" loc="48" ncloc="48" packages="9" files="10" classes="10"/>
     <package name="src">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="App.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-hooks/src/App.tsx">
@@ -33,12 +33,11 @@
       </file>
     </package>
     <package name="src.components.Card">
-      <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Card.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-hooks/src/components/Card/Card.tsx">
-        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="7" count="25" type="stmt"/>
-        <line num="9" count="25" type="stmt"/>
-        <line num="24" count="25" type="stmt"/>
+        <line num="22" count="25" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Header">
@@ -69,8 +68,8 @@
         <line num="15" count="5" type="stmt"/>
         <line num="16" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="29" count="6" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.About">
@@ -81,16 +80,15 @@
       </file>
     </package>
     <package name="src.pages.AddBook">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="AddBook.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-hooks/src/pages/AddBook/AddBook.tsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="4" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.Home">
@@ -98,8 +96,8 @@
       <file name="Home.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-hooks/src/pages/Home/Home.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="98" count="3" type="stmt"/>
-        <line num="104" count="24" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="96" count="24" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.NotFound">

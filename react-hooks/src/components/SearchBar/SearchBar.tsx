@@ -16,14 +16,6 @@ const SearchBar = () => {
     if (savedValue?.trim()) {
       setSearchValue(savedValue);
     }
-
-    // return () => {
-    //   console.log('Debounce start');
-    //   if (searchValue.trim() !== '') {
-    //     console.log('setLocalStorage');
-    //     localStorage.setItem('searchValue', searchValue);
-    //   }
-    // };
   }, []);
 
   return (

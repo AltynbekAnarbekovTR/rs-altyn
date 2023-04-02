@@ -4,8 +4,6 @@ import { CardData } from '../../types/types';
 import { v4 } from 'uuid';
 
 function Card({ title, author, genres, cover, published, pageCount, bookType, stock }: CardData) {
-  console.log(cover);
-
   return (
     <li className={styles.card}>
       <div className={styles.cover}>

@@ -9,7 +9,6 @@ const AddBook: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([]);
 
   const handleSubmit = (formData: CardData) => {
-    console.log(formData);
     setCards((prevCards) => [...prevCards, formData]);
   };
 
