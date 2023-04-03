@@ -31,11 +31,11 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
   const onSubmitHandler = (data: FormData) => {
     const imageUrl = URL.createObjectURL(data.cover[0]);
     onSubmit({ ...data, cover: imageUrl });
+    reset();
   };
 
   useEffect(() => {
     if (isSubmitSuccessful) {
-      reset();
     }
   }, [formState, isSubmitSuccessful, reset]);
 
@@ -180,6 +180,7 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
       <div className={styles['button-container']}>
         <button type="submit">Submit</button>
       </div>
+      {isSubmitSuccessful && <p className={styles.submitted}>Card created successfully!</p>}
     </form>
   );
 };
