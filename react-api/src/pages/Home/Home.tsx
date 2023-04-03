@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { v4 } from 'uuid';
 import Card from '../../components/Card/Card';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from './Home.module.css';
@@ -86,15 +87,19 @@ const booksData = [
   },
 ];
 
-const getBooks = async () => {
-  // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}`);
-  const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=flowers`);
-  const data = await response.json();
-  console.log(data);
-  return data;
-};
-
 function Home() {
+  const [books, setBooks] = useState();
+  console.log('component: ', books);
+
+  const getBooks = async () => {
+    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}`);
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=crime`);
+    const data = await response.json();
+    setBooks(data.items);
+    console.log('getBooks: ', data);
+    // return data;
+  };
+
   useEffect(() => {
     getBooks();
   }, []);
@@ -118,6 +123,36 @@ function Home() {
             />
           ))}
         </ul>
+        {books && (
+          <ul className={styles.cards} data-testid="cards">
+            {/* {books.map(({ volumeInfo }) => (
+              <Card
+                key={v4()}
+                title={volumeInfo.title}
+                author={volumeInfo.author}
+                genres={item.genres}
+                stock={item.stock}
+                bookType={item.bookType}
+                cover={item.image}
+                published={item.published}
+                pageCount={item.pages}
+              />
+            ))} */}
+            {books.map(({ volumeInfo }) => {
+              let thumbnail = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
+              return (
+                <div>
+                  <img src={thumbnail} alt="" />
+                  <div>{volumeInfo.title}</div>
+                  <div>{volumeInfo.authors}</div>
+                  <div>{volumeInfo.categories}</div>
+                  <div>{volumeInfo.pageCount}</div>
+                  <div>{volumeInfo.publishedDate}</div>
+                </div>
+              );
+            })}
+          </ul>
+        )}
       </section>
     </div>
   );
