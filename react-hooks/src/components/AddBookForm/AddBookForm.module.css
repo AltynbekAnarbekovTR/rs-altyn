@@ -36,7 +36,6 @@ label {
   border: 1px solid black;
 }
 
-
 .genres {
   /* margin-top: 20px; */
 }
@@ -81,8 +80,6 @@ label {
   margin-bottom: 30px;
 }
 
-
-
 .preview img {
   width: 300px;
   margin: 0 auto;
@@ -96,7 +93,6 @@ label {
 .space-between select {
   border: 1px solid black;
 }
-
 
 .submitted {
   color: green;

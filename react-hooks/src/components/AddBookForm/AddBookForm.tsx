@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { CardData } from 'types/types';
 import { v4 } from 'uuid';
@@ -24,7 +24,6 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
     reset,
     register,
     handleSubmit,
-    formState,
     formState: { errors, isSubmitSuccessful },
   } = useForm<FormData>({ mode: 'onSubmit' });
 
@@ -33,11 +32,6 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
     onSubmit({ ...data, cover: imageUrl });
     reset();
   };
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-    }
-  }, [formState, isSubmitSuccessful, reset]);
 
   const today = new Date().toISOString().slice(0, 10);
   const genres = ['Fiction', 'Non-Fiction', 'Fantasy', 'Sci-Fi'];

@@ -13,7 +13,6 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    console.log('Here');
     valueRef.current = searchValue;
   }, [searchValue]);
 

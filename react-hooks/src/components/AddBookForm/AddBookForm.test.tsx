@@ -67,15 +67,6 @@ describe('AddBookForm', () => {
 
     await waitFor(() => {
       expect(handleSubmit).toHaveBeenCalledTimes(1);
-      // expect(handleSubmit).toHaveBeenCalledWith({
-      //   author: 'Leo Tolstoy',
-      //   bookType: 'Hardcover',
-      //   genres: ['Fantasy'],
-      //   pageCount: 1100,
-      //   published: '2020-05-12',
-      //   stock: 'in-stock',
-      //   title: 'War and Peace',
-      // });
     });
   });
 });
