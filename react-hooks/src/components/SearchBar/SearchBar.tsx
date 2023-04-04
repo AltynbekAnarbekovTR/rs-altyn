@@ -3,27 +3,19 @@ import styles from './SearchBar.module.css';
 
 const SearchBar = () => {
   const [searchValue, setSearchValue] = useState('');
-  const valueRef = useRef<string>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  const searchInputHandler = (searchValue: string): void => {
-    if (searchValue.trim() !== '') {
-      setSearchValue(searchValue);
-      // localStorage.setItem('searchValue', searchValue);
-    }
+  const searchInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    localStorage.setItem('searchValue', inputRef.current?.value || '');
+    setSearchValue(value);
   };
 
   useEffect(() => {
-    valueRef.current = searchValue;
-  }, [searchValue]);
-
-  useEffect(() => {
     const savedValue = localStorage.getItem('searchValue');
-    if (savedValue?.trim()) {
+    if (savedValue) {
       setSearchValue(savedValue);
     }
-    return () => {
-      localStorage.setItem('searchValue', valueRef.current!);
-    };
   }, []);
 
   return (
@@ -32,12 +24,11 @@ const SearchBar = () => {
         <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
           <div className={styles.search_box}>
             <input
+              ref={inputRef}
               type="text"
               className={styles.input}
               value={searchValue}
-              onChange={(e) => {
-                searchInputHandler(e.target.value);
-              }}
+              onChange={searchInputHandler}
               placeholder="search..."
             />
             <div className={`${styles.btn} ${styles.btn_common}`}>

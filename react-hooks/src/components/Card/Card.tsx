@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Card.module.css';
 import { CardData } from '../../types/types';
 import { v4 } from 'uuid';
+import CardDetail from './CardDetail';
 
 function Card({ title, author, genres, cover, published, pageCount, bookType, stock }: CardData) {
   return (
@@ -24,18 +25,10 @@ function Card({ title, author, genres, cover, published, pageCount, bookType, st
             </span>
           ))}
         </p>
-        <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Type:</span> <span data-testid="card-bookType">{bookType}</span>
-        </p>
-        <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Published:</span> <span data-testid="card-published">{published}</span>
-        </p>
-        <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Pages:</span> <span data-testid="card-pages">{pageCount}</span>
-        </p>
-        <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>In Stock:</span> <span data-testid="card-stock">{stock ? 'Yes' : 'No'}</span>
-        </p>
+        <CardDetail type="Type" value={bookType} />
+        <CardDetail type="Published" value={published} />
+        <CardDetail type="Pages" value={pageCount} />
+        <CardDetail type="In Stock" value={stock ? 'Yes' : 'No'} />
       </div>
     </li>
   );

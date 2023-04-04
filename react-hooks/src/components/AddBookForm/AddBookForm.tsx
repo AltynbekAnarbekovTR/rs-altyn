@@ -165,7 +165,18 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
       <div className={styles['input-container']}>
         <label>
           Cover:
-          <input type="file" accept="image/*" {...register('cover', { required: true })} />
+          <input
+            type="file"
+            accept="image/*"
+            {...register('cover', {
+              required: true,
+              validate: {
+                type([file]: FileList) {
+                  return ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type);
+                },
+              },
+            })}
+          />
           <p data-testid="coverError" className={styles.error}>
             {errors.cover && 'Image is required'}
           </p>
@@ -180,3 +191,12 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
 };
 
 export default AddBookForm;
+
+// validate: {
+//   type([file]: FileList) {
+//     return (
+//       ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type) ||
+//       'Please select an image file in PNG, JPEG or JPG format'
+//     )
+//   },
+// },
