@@ -141,14 +141,25 @@ function Home() {
             {books.map(({ volumeInfo }) => {
               let thumbnail = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
               return (
-                <div>
-                  <img src={thumbnail} alt="" />
-                  <div>{volumeInfo.title}</div>
-                  <div>{volumeInfo.authors}</div>
-                  <div>{volumeInfo.categories}</div>
-                  <div>{volumeInfo.pageCount}</div>
-                  <div>{volumeInfo.publishedDate}</div>
-                </div>
+                // <div>
+                //   <img src={thumbnail} alt="" />
+                //   <div>{volumeInfo.title}</div>
+                //   <div>{volumeInfo.authors}</div>
+                //   <div>{volumeInfo.categories}</div>
+                //   <div>{volumeInfo.pageCount}</div>
+                //   <div>{volumeInfo.publishedDate}</div>
+                // </div>
+                <Card
+                  key={v4()}
+                  title={volumeInfo.title}
+                  author={volumeInfo.author}
+                  genres={volumeInfo.categories}
+                  // stock={item.stock}
+                  // bookType={item.bookType}
+                  cover={thumbnail}
+                  published={volumeInfo.publishedDate}
+                  pageCount={volumeInfo.pageCount}
+                />
               );
             })}
           </ul>
