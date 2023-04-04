@@ -25,10 +25,10 @@ function Card({ title, author, genres, cover, published, pageCount, bookType, st
             </span>
           ))}
         </p>
-        <CardDetail type="Type" value={bookType} />
-        <CardDetail type="Published" value={published} />
-        <CardDetail type="Pages" value={pageCount} />
-        <CardDetail type="In Stock" value={stock ? 'Yes' : 'No'} />
+        <CardDetail testid="card-bookType" type="Type" value={bookType} />
+        <CardDetail testid="card-published" type="Published" value={published} />
+        <CardDetail testid="card-pages" type="Pages" value={pageCount} />
+        <CardDetail testid="card-stock" type="In Stock" value={stock ? 'Yes' : 'No'} />
       </div>
     </li>
   );
