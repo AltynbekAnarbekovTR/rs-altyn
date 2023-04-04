@@ -191,12 +191,3 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
 };
 
 export default AddBookForm;
-
-// validate: {
-//   type([file]: FileList) {
-//     return (
-//       ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type) ||
-//       'Please select an image file in PNG, JPEG or JPG format'
-//     )
-//   },
-// },
