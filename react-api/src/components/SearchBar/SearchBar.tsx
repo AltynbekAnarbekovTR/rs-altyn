@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './SearchBar.module.css';
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [searchValue, setSearchValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -19,7 +19,7 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <form className={styles.search}>
+    <form onSubmit={(e) => onSearch(searchValue, e)} className={styles.search}>
       <div className={styles.container}>
         <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
           <div className={styles.search_box}>
@@ -31,9 +31,9 @@ const SearchBar = () => {
               onChange={searchInputHandler}
               placeholder="search..."
             />
-            <div className={`${styles.btn} ${styles.btn_common}`}>
+            <button type="submit" className={`${styles.btn} ${styles.btn_common}`}>
               <i className="fas fa-search" />
-            </div>
+            </button>
           </div>
         </div>
       </div>

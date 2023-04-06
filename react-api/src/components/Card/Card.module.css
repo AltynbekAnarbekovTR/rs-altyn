@@ -30,11 +30,27 @@
   padding: 10px 0;
   font-size: 18px;
   font-family: 'Montserrat';
-  border-bottom: 1px solid #b9b9b9;
 }
 
 .author span {
   color: blue;
+}
+
+.buttonContainer {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.showMore {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #24a0ed;
+  color: white;
+  padding: 0.5rem 0.5rem;
+  
+  font-style: bold;
+  cursor: pointer;
 }
 
 .flex-between {

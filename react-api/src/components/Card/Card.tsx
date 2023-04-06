@@ -4,9 +4,25 @@ import { CardData } from '../../types/types';
 import { v4 } from 'uuid';
 import CardDetail from './CardDetail';
 
-function Card({ title, author, genres, cover, published, pageCount, bookType, stock }: CardData) {
+function Card({
+  getBookInfo,
+  id,
+  title,
+  author,
+  genres,
+  cover,
+  published,
+  pageCount,
+  bookType,
+  stock,
+}: CardData) {
   return (
-    <li className={styles.card}>
+    <li
+      onClick={() => {
+        getBookInfo(id, title);
+      }}
+      className={styles.card}
+    >
       <div className={styles.cover}>
         <img src={cover} alt="Book cover (need internet)" />
       </div>
@@ -17,18 +33,9 @@ function Card({ title, author, genres, cover, published, pageCount, bookType, st
         <p className={styles.author}>
           by <span data-testid="card-author">{author}</span>
         </p>
-        <p className={`${styles['flex-between']} ${styles.details}`}>
-          <span>Genre:</span>{' '}
-          {genres?.map((item) => (
-            <span data-testid="card-genres" key={v4()}>
-              {item}
-            </span>
-          ))}
-        </p>
-        <CardDetail testid="card-bookType" type="Type" value={bookType} />
-        <CardDetail testid="card-published" type="Published" value={published} />
-        <CardDetail testid="card-pages" type="Pages" value={pageCount} />
-        <CardDetail testid="card-stock" type="In Stock" value={stock ? 'Yes' : 'No'} />
+        <div className={styles.buttonContainer}>
+          <button className={styles.showMore}>More Info</button>
+        </div>
       </div>
     </li>
   );

@@ -1,0 +1,60 @@
+.modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContainer {
+    max-width: 700px;
+    /* max-height: 550px; */
+    background-color: #fff;
+    padding: 2rem;
+    position: relative;
+    
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.bookCover {
+    
+}
+
+.bookCover img {
+    max-width: 150px;
+}
+
+.bookInfo {
+    display: flex;
+    gap: 2rem;
+}
+
+.bookDetails p, .bookDetails button {
+    margin-top: 0.5rem;
+}
+
+.title {
+
+}
+
+.author {
+    color: blue;
+    font-family: 'Montserrat';
+}
+
+.bookDescription {
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow-y:auto
+}

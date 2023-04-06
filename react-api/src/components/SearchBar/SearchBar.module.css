@@ -33,7 +33,7 @@
   width: 60px;
   height: 100%;
   background: #7690da;
-  z-index: 1;
+  /* z-index: 1; */
   cursor: pointer;
 }
 
@@ -62,7 +62,6 @@
 }
 
 .search_box {
-  /* box-shadow: 1px 1px 10px black; */
   border: 2px solid #7690da;
   border-radius: 6px;
 }
