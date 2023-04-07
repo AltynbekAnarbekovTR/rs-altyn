@@ -27,12 +27,19 @@
 }
 
 .author {
+  
   padding: 10px 0;
   font-size: 18px;
   font-family: 'Montserrat';
+  max-height: 45px;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .author span {
+  width: 100px;
   color: blue;
 }
 

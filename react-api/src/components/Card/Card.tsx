@@ -31,7 +31,7 @@ function Card({
           {title}
         </h3>
         <p className={styles.author}>
-          by <span data-testid="card-author">{author}</span>
+          by <span data-testid="card-author">{author || 'Unknown'}</span>
         </p>
         <div className={styles.buttonContainer}>
           <button className={styles.showMore}>More Info</button>

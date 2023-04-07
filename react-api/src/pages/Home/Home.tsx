@@ -87,7 +87,7 @@ function Home() {
                   key={v4()}
                   id={id}
                   title={volumeInfo.title}
-                  author={volumeInfo.author}
+                  author={volumeInfo.authors}
                   genres={volumeInfo.categories}
                   // stock={item.stock}
                   // bookType={item.bookType}
@@ -108,8 +108,8 @@ function Home() {
         </button>
         {showModal && bookInfo && (
           <Modal
-            bookInfo={bookInfo}
             setShowModal={setShowModal}
+            bookInfo={bookInfo}
             // title={bookInfo.title}
             // author={bookInfo.author}
             // genres={bookInfo.categories}

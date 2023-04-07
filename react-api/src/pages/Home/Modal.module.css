@@ -48,9 +48,21 @@
 
 }
 
-.author {
+.author span {
     color: blue;
     font-family: 'Montserrat';
+}
+
+.more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(50, 50, 255);
+}
+
+.more:hover {
+    background-color: rgb(91, 91, 252);
 }
 
 .bookDescription {
