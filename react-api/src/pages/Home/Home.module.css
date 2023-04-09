@@ -2,6 +2,11 @@ section {
   margin-top: 50px;
 }
 
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .cards {
   display: flex;
   gap: 30px;

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './SearchBar.module.css';
 
-const SearchBar = ({ onSearch }) => {
+interface Props {
+  onSearch: (searchValue: string, event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+}
+
+const SearchBar = ({ onSearch }: Props) => {
   const [searchValue, setSearchValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -31,7 +35,11 @@ const SearchBar = ({ onSearch }) => {
               onChange={searchInputHandler}
               placeholder="search..."
             />
-            <button type="submit" className={`${styles.btn} ${styles.btn_common}`}>
+            <button
+              data-testid="search"
+              type="submit"
+              className={`${styles.btn} ${styles.btn_common}`}
+            >
               <i className="fas fa-search" />
             </button>
           </div>

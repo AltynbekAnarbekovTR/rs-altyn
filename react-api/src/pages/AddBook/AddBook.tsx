@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
-import Card from '../../components/Card/Card';
+import FormCard from '../../components/Card/FormCard';
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
-import { CardData } from '../../types/types';
+import { FormCardData } from '../../types/types';
 
 const AddBook: React.FC = () => {
-  const [cards, setCards] = useState<CardData[]>([]);
+  const [cards, setCards] = useState<FormCardData[]>([]);
 
-  const handleSubmit = (formData: CardData) => {
+  const handleSubmit = (formData: FormCardData) => {
     setCards((prevCards) => [...prevCards, formData]);
   };
 
@@ -18,7 +18,7 @@ const AddBook: React.FC = () => {
       <ul className={styles.cards} data-testid="cards">
         {cards.map((item) => {
           return (
-            <Card
+            <FormCard
               key={v4()}
               title={item.title}
               author={item.author}

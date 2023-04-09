@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { CardData } from 'types/types';
+import { FormCardData } from 'types/types';
 import { v4 } from 'uuid';
 import styles from './AddBookForm.module.css';
 
@@ -16,7 +16,7 @@ export interface FormData {
 }
 
 interface Props {
-  onSubmit: (data: CardData) => void;
+  onSubmit: (data: FormCardData) => void;
 }
 
 const AddBookForm: React.FC<Props> = ({ onSubmit }) => {

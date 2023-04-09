@@ -27,7 +27,6 @@
 }
 
 .author {
-  
   padding: 10px 0;
   font-size: 18px;
   font-family: 'Montserrat';
@@ -55,7 +54,7 @@
   background-color: #24a0ed;
   color: white;
   padding: 0.5rem 0.5rem;
-  
+
   font-style: bold;
   cursor: pointer;
 }

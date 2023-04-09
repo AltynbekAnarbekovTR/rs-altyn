@@ -1,123 +1,106 @@
-import React, { useEffect, useState } from 'react';
-import Card from '../../components/Card/Card';
+import React, { useState } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+import HomeCard from '../../components/Card/HomeCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from './Home.module.css';
-import booksData from '../../data/BooksData';
 import { v4 } from 'uuid';
 import Modal from './Modal';
+import { BookInfo } from 'types/types';
+
+interface Book {
+  id: string;
+  volumeInfo: {
+    title: string;
+    authors: string[];
+    categories: string[];
+    imageLinks: {
+      thumbnail: string;
+    };
+    publishedDate: string;
+    pageCount?: number;
+  };
+}
 
 function Home() {
-  const [books, setBooks] = useState();
-  const [bookInfo, setBookInfo] = useState();
+  const [books, setBooks] = useState<Array<Book>>();
+  const [bookInfo, setBookInfo] = useState<BookInfo>();
+  const [isLoading, setisLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const getBooks = async (searchValue, event) => {
+  const [error, setError] = useState(null);
+
+  const getBooks = async (searchValue: string, event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${book}`);
-    console.log(searchValue);
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchValue}`);
-    const data = await response.json();
-    setBooks(data.items);
-    console.log('getBooks: ', data);
-    // return data;
+    setisLoading(true);
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw Error('Could not fetch the data for that resource');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setisLoading(false);
+        setError(null);
+        setBooks(data.items);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setisLoading(false);
+      });
   };
 
-  const getBookInfo = async (bookId, bookTitle) => {
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${bookId} ${bookTitle}`
-    );
-    const data = await response.json();
-    console.log('getBookInfo', data);
-    setBookInfo(data.items[0]);
-    setShowModal(true);
+  const getBookInfo = async (bookId: string, bookTitle: string) => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${bookId} ${bookTitle}&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount, description))`
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw Error('Could not fetch the data for that resource');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setBookInfo(data.items[0]);
+        setShowModal(true);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   };
 
-  useEffect(() => {
-    // getBooks('Boom');
-  }, []);
-
-  console.log('component: ', books);
   return (
     <div className="container">
       <section>
         <SearchBar onSearch={getBooks} />
-        <ul className={styles.cards} data-testid="cards">
-          {booksData.map((item) => (
-            <Card
-              key={item.title}
-              title={item.title}
-              author={item.author}
-              genres={item.genres}
-              stock={item.stock}
-              bookType={item.bookType}
-              cover={item.image}
-              published={item.published}
-              pageCount={item.pages}
-            />
-          ))}
-        </ul>
-
-        {books && (
-          <ul className={styles.cards} data-testid="cards">
-            {/* {books.map(({ volumeInfo }) => (
-              <Card
-                key={v4()}
-                title={volumeInfo.title}
-                author={volumeInfo.author}
-                genres={item.genres}
-                stock={item.stock}
-                bookType={item.bookType}
-                cover={item.image}
-                published={item.published}
-                pageCount={item.pages}
-              />
-            ))} */}
-            {books.map(({ volumeInfo, id }) => {
-              let thumbnail = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
-              return (
-                // <div>
-                //   <img src={thumbnail} alt="" />
-                //   <div>{volumeInfo.title}</div>
-                //   <div>{volumeInfo.authors}</div>
-                //   <div>{volumeInfo.categories}</div>
-                //   <div>{volumeInfo.pageCount}</div>
-                //   <div>{volumeInfo.publishedDate}</div>
-                // </div>
-                <Card
-                  getBookInfo={getBookInfo}
-                  key={v4()}
-                  id={id}
-                  title={volumeInfo.title}
-                  author={volumeInfo.authors}
-                  genres={volumeInfo.categories}
-                  // stock={item.stock}
-                  // bookType={item.bookType}
-                  cover={thumbnail}
-                  published={volumeInfo.publishedDate}
-                  pageCount={volumeInfo.pageCount}
-                />
-              );
-            })}
-          </ul>
-        )}
-        <button
-          onClick={() => {
-            setShowModal((showModal) => !showModal);
-          }}
-        >
-          Show Modal
-        </button>
+        <div className={styles.cardsContainer}>
+          {error && !isLoading && <div>{error}</div>}
+          {isLoading && <ClipLoader color="#566ed9" />}
+          {books && !error && !isLoading && (
+            <ul className={styles.cards} data-testid="cards">
+              {books.map(({ volumeInfo, id }) => {
+                const thumbnail = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
+                return (
+                  <HomeCard
+                    getBookInfo={getBookInfo}
+                    key={v4()}
+                    id={id}
+                    title={volumeInfo.title}
+                    author={volumeInfo.authors}
+                    cover={thumbnail}
+                  />
+                );
+              })}
+            </ul>
+          )}
+        </div>
         {showModal && bookInfo && (
           <Modal
             setShowModal={setShowModal}
-            bookInfo={bookInfo}
-            // title={bookInfo.title}
-            // author={bookInfo.author}
-            // genres={bookInfo.categories}
-            // // stock={item.stock}
-            // // bookType={item.bookType}
-            // // cover={thumbnail}
-            // published={bookInfo.publishedDate}
-            // pageCount={bookInfo.pageCount}
+            id={bookInfo.id}
+            infoLink={bookInfo.infoLink}
+            volumeInfo={bookInfo.volumeInfo}
           />
         )}
       </section>

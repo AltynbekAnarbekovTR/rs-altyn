@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/pages/About/About.tsx</title>
+    <title>Code coverage report for src/components/Card/CardDetail.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/pages/About</a> About.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Card</a> CardDetail.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -81,25 +81,17 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,27 +100,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import styles from './About.module.css';
+import styles from './Card.module.css';
 &nbsp;
-function About() {
-  return (
-    &lt;div className={styles.about}&gt;
-      &lt;div className="container"&gt;
-        &lt;h1&gt;About TinyFox&lt;/h1&gt;
-        &lt;p data-testid="about"&gt;
-          TinyFox works to connect readers with independent booksellers all over the world. ‍We
-          believe local bookstores are essential community hubs that foster culture, curiosity, and
-          a love of reading, and we are committed to helping them thrive. Every purchase on the site
-          financially supports independent bookstores. Our platform gives independent bookstores
-          tools to compete online and financial support to help them maintain their presence in
-          local communities.
-        &lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  );
+interface Props {
+  testid?: string;
+  type: string;
+  value?: string | number;
 }
 &nbsp;
-export default About;
+const CardDetail = ({ testid, type, value }: Props) =&gt; {
+  return (
+    &lt;p className={`${styles['flex-between']} ${styles.details}`}&gt;
+      &lt;span&gt;{type}:&lt;/span&gt; &lt;span data-testid={testid}&gt;{value || <span class="branch-1 cbranch-no" title="branch not covered" >'Unknown'}&lt;</span>/span&gt;
+    &lt;/p&gt;
+  );
+};
+&nbsp;
+export default CardDetail;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

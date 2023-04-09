@@ -1,18 +1,20 @@
 import React from 'react';
 import styles from './Modal.module.css';
-// import cover from '../../assets/1984.webp';
+import { BookInfo } from 'types/types';
 
-const Modal = ({ setShowModal, bookInfo }) => {
-  console.log('Modal book info', bookInfo);
-  const {
-    imageLinks: { thumbnail },
+const Modal = ({
+  setShowModal,
+  infoLink,
+  volumeInfo: {
     title,
     authors,
-    publishedDate,
-    description,
     categories,
-    infoLink,
-  } = bookInfo.volumeInfo;
+    imageLinks: { thumbnail },
+    publishedDate,
+    pageCount,
+    description,
+  },
+}: BookInfo) => {
   return (
     <div
       onClick={() => {
@@ -36,20 +38,24 @@ const Modal = ({ setShowModal, bookInfo }) => {
         </button>
         <div className={styles.bookInfo}>
           <div className={styles.bookCover}>
-            <img src={thumbnail} alt="" />
+            <img src={thumbnail} alt="Book cover" />
           </div>
           <div className={styles.bookDetails}>
             <h2 className={styles.title}>{title}</h2>
-            <p className={styles.author || 'No author'}>
-              By <span>{authors}</span>
+            <p className={styles.author}>
+              By <span>{authors || 'No author'}</span>
             </p>
             <p className={styles.published}>Published: {publishedDate || 'No publication date'}</p>
             <p className={styles.published}>Categories: {categories || 'No categories'}</p>
+            <div className={styles.pageCount}>
+              <p>Page count: {pageCount || 'No page count'}</p>
+            </div>
             <a target="blank" href={infoLink} className={styles.more}>
               Go to Google Books
             </a>
           </div>
         </div>
+
         <div className={styles.bookDescription}>
           <p>{description || 'No description'}</p>
         </div>
