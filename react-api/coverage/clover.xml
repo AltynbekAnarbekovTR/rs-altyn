@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681064569439" clover="3.2.0">
-  <project timestamp="1681064569439" name="All files">
-    <metrics statements="83" coveredstatements="57" conditionals="68" coveredconditionals="42" methods="43" coveredmethods="29" elements="194" coveredelements="128" complexity="0" loc="83" ncloc="83" packages="9" files="13" classes="13"/>
+<coverage generated="1681149224226" clover="3.2.0">
+  <project timestamp="1681149224226" name="All files">
+    <metrics statements="82" coveredstatements="58" conditionals="70" coveredconditionals="44" methods="43" coveredmethods="31" elements="195" coveredelements="133" complexity="0" loc="82" ncloc="82" packages="9" files="13" classes="13"/>
     <package name="src">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="App.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/App.tsx">
@@ -33,7 +33,7 @@
       </file>
     </package>
     <package name="src.components.Card">
-      <metrics statements="6" coveredstatements="5" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="4"/>
+      <metrics statements="6" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="5"/>
       <file name="CardDetail.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/components/Card/CardDetail.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="10" count="2" type="stmt"/>
@@ -45,9 +45,9 @@
         <line num="32" count="1" type="stmt"/>
       </file>
       <file name="HomeCard.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/components/Card/HomeCard.tsx">
-        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Header">
@@ -65,11 +65,11 @@
       </file>
     </package>
     <package name="src.components.SearchBar">
-      <metrics statements="13" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="3"/>
       <file name="SearchBar.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/components/SearchBar/SearchBar.tsx">
-        <metrics statements="13" coveredstatements="11" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="3"/>
+        <metrics statements="12" coveredstatements="10" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="3"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="10" count="5" type="stmt"/>
         <line num="12" count="5" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -77,10 +77,9 @@
         <line num="15" count="1" type="stmt"/>
         <line num="18" count="5" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
-        <line num="20" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.About">
@@ -103,16 +102,16 @@
       </file>
     </package>
     <package name="src.pages.Home">
-      <metrics statements="33" coveredstatements="10" conditionals="28" coveredconditionals="9" methods="14" coveredmethods="2"/>
+      <metrics statements="33" coveredstatements="11" conditionals="30" coveredconditionals="10" methods="14" coveredmethods="3"/>
       <file name="Home.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/pages/Home/Home.tsx">
-        <metrics statements="28" coveredstatements="8" conditionals="18" coveredconditionals="4" methods="10" coveredmethods="1"/>
+        <metrics statements="28" coveredstatements="9" conditionals="20" coveredconditionals="5" methods="10" coveredmethods="2"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
         <line num="29" count="2" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+        <line num="32" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -123,17 +122,17 @@
         <line num="46" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="54" count="2" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="59" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
         <line num="66" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="83" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="84" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="85" count="0" type="stmt"/>
       </file>
       <file name="Modal.tsx" path="D:/Frontend/Projects/React/RS School/experiment/react-api/src/pages/Home/Modal.tsx">
         <metrics statements="5" coveredstatements="2" conditionals="10" coveredconditionals="5" methods="4" coveredmethods="1"/>

@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './SearchBar.module.css';
 
 interface Props {
-  onSearch: (searchValue: string, event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  onSearch: (searchValue: string) => Promise<void>;
 }
 
 const SearchBar = ({ onSearch }: Props) => {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const searchInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,14 +16,18 @@ const SearchBar = ({ onSearch }: Props) => {
   };
 
   useEffect(() => {
-    const savedValue = localStorage.getItem('searchValue');
-    if (savedValue) {
-      setSearchValue(savedValue);
-    }
+    onSearch(searchValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <form onSubmit={(e) => onSearch(searchValue, e)} className={styles.search}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSearch(searchValue);
+      }}
+      className={styles.search}
+    >
       <div className={styles.container}>
         <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
           <div className={styles.search_box}>

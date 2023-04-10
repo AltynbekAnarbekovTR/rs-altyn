@@ -28,27 +28,28 @@ function Home() {
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState(null);
 
-  const getBooks = async (searchValue: string, event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setisLoading(true);
-    fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`
-    )
-      .then((res) => {
-        if (!res.ok) {
-          throw Error('Could not fetch the data for that resource');
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setisLoading(false);
-        setError(null);
-        setBooks(data.items);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setisLoading(false);
-      });
+  const getBooks = async (searchValue: string) => {
+    if (searchValue?.trim()) {
+      setisLoading(true);
+      fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`
+      )
+        .then((res) => {
+          if (!res.ok) {
+            throw Error('Could not fetch the data for that resource');
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setisLoading(false);
+          setError(null);
+          setBooks(data.items);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setisLoading(false);
+        });
+    }
   };
 
   const getBookInfo = async (bookId: string, bookTitle: string) => {
