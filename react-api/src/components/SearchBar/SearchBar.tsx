@@ -32,6 +32,7 @@ const SearchBar = ({ onSearch }: Props) => {
         <div className={`${styles.search_wrap} ${styles.search_wrap_1}`}>
           <div className={styles.search_box}>
             <input
+              data-testid="search-input"
               ref={inputRef}
               type="text"
               className={styles.input}
@@ -40,7 +41,7 @@ const SearchBar = ({ onSearch }: Props) => {
               placeholder="search..."
             />
             <button
-              data-testid="search"
+              data-testid="search-submit"
               type="submit"
               className={`${styles.btn} ${styles.btn_common}`}
             >

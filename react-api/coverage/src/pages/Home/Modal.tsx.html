@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -130,17 +130,31 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,20 +164,12 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,21 +222,24 @@ const Modal = ({
 }: BookInfo) =&gt; {
   return (
     &lt;div
-      onClick={<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        setShowModal(false);</span>
+      data-testid="modalBackground"
+      onClick={() =&gt; {
+        setShowModal(false);
       }}
       className={styles.modalBackground}
     &gt;
       &lt;div
-        onClick={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
-<span class="cstat-no" title="statement not covered" >          e.stopPropagation();</span>
+        data-testid="modal"
+        onClick={(e) =&gt; {
+          e.stopPropagation();
         }}
         className={styles.modalContainer}
       &gt;
         &lt;button
+          data-testid="modalClose"
           className={styles.closeButton}
-          onClick={<span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            setShowModal(false);</span>
+          onClick={() =&gt; {
+            setShowModal(false);
           }}
         &gt;
           X
@@ -244,10 +253,10 @@ const Modal = ({
             &lt;p className={styles.author}&gt;
               By &lt;span&gt;{authors || <span class="branch-1 cbranch-no" title="branch not covered" >'No author'}&lt;</span>/span&gt;
             &lt;/p&gt;
-            &lt;p className={styles.published}&gt;Published: {publishedDate || <span class="branch-1 cbranch-no" title="branch not covered" >'No publication date'}&lt;</span>/p&gt;
-            &lt;p className={styles.published}&gt;Categories: {categories || <span class="branch-1 cbranch-no" title="branch not covered" >'No categories'}&lt;</span>/p&gt;
+            &lt;p className={styles.published}&gt;Published: {publishedDate || 'No publication date'}&lt;/p&gt;
+            &lt;p className={styles.published}&gt;Categories: {categories || 'No categories'}&lt;/p&gt;
             &lt;div className={styles.pageCount}&gt;
-              &lt;p&gt;Page count: {pageCount || <span class="branch-1 cbranch-no" title="branch not covered" >'No page count'}&lt;</span>/p&gt;
+              &lt;p&gt;Page count: {pageCount || 'No page count'}&lt;/p&gt;
             &lt;/div&gt;
             &lt;a target="blank" href={infoLink} className={styles.more}&gt;
               Go to Google Books
@@ -256,7 +265,7 @@ const Modal = ({
         &lt;/div&gt;
 &nbsp;
         &lt;div className={styles.bookDescription}&gt;
-          &lt;p&gt;{description || <span class="branch-1 cbranch-no" title="branch not covered" >'No description'}&lt;</span>/p&gt;
+          &lt;p&gt;{description || 'No description'}&lt;/p&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -271,7 +280,7 @@ export default Modal;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-10T17:53:44.031Z
+                at 2023-04-11T21:22:53.020Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

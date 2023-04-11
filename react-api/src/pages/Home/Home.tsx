@@ -20,13 +20,16 @@ interface Book {
     pageCount?: number;
   };
 }
-
 function Home() {
   const [books, setBooks] = useState<Array<Book>>();
   const [bookInfo, setBookInfo] = useState<BookInfo>();
   const [isLoading, setisLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState(null);
+
+  console.log(Array.isArray(books));
+  console.log(typeof isLoading);
+  console.log(books);
 
   const getBooks = async (searchValue: string) => {
     if (searchValue?.trim()) {
@@ -46,6 +49,7 @@ function Home() {
           setBooks(data.items);
         })
         .catch((err) => {
+          console.log(err);
           setError(err.message);
           setisLoading(false);
         });

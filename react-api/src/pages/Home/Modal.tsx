@@ -17,18 +17,21 @@ const Modal = ({
 }: BookInfo) => {
   return (
     <div
+      data-testid="modalBackground"
       onClick={() => {
         setShowModal(false);
       }}
       className={styles.modalBackground}
     >
       <div
+        data-testid="modal"
         onClick={(e) => {
           e.stopPropagation();
         }}
         className={styles.modalContainer}
       >
         <button
+          data-testid="modalClose"
           className={styles.closeButton}
           onClick={() => {
             setShowModal(false);
