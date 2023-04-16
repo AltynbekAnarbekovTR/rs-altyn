@@ -3,14 +3,18 @@ import { describe, it, vi } from 'vitest';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import AddBook from './AddBook';
+import { Provider } from 'react-redux';
+import store from '../../store';
 
 describe('AddBookForm', () => {
-  const onSubmit = vi.fn();
   global.URL.createObjectURL = vi.fn();
 
   beforeEach(() => {
-    onSubmit.mockClear();
-    render(<AddBook />);
+    render(
+      <Provider store={store}>
+        <AddBook />
+      </Provider>
+    );
   });
 
   it('Card is created when form is submitted', async () => {

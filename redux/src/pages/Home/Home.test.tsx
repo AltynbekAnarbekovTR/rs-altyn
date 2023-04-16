@@ -4,6 +4,8 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import Home from './Home';
 import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
+import store from '../../store';
 
 const server = setupServer(
   rest.get('https://www.googleapis.com/books/v1/volumes', (req, res, ctx) => {
@@ -31,15 +33,19 @@ const server = setupServer(
 );
 
 beforeAll(() => server.listen());
-
+beforeEach(() => {
+  render(
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  );
+});
 afterAll(() => server.close());
 
 afterEach(() => server.resetHandlers());
 
 describe('Home', () => {
   it('displays book data when a search is made', async () => {
-    render(<Home />);
-
     const searchInput = screen.getByRole('textbox');
     fireEvent.change(searchInput, { target: { value: 'react' } });
 
@@ -61,15 +67,13 @@ describe('Home', () => {
   });
 
   it('displays an error message when a search fails', async () => {
-    render(<Home />);
-
     const searchInput = screen.getByRole('textbox');
     fireEvent.change(searchInput, { target: { value: 'error' } });
 
     const searchButton = screen.getByTestId('search-submit');
     fireEvent.click(searchButton);
 
-    const errorMessage = await screen.findByText(/Could not fetch the data for that resource/i);
+    const errorMessage = await screen.findByText(/Failed to fetch/i);
 
     expect(errorMessage).toBeInTheDocument();
   });

@@ -1,7 +1,11 @@
 import React from 'react';
 import { describe, it, vi } from 'vitest';
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import user from '@testing-library/user-event';
+
+import store from '../../store';
+import { Provider } from 'react-redux';
+
 import AddBookForm from './AddBookForm';
 
 describe('AddBookForm', () => {
@@ -10,7 +14,11 @@ describe('AddBookForm', () => {
 
   beforeEach(() => {
     handleSubmit.mockClear();
-    render(<AddBookForm onSubmit={handleSubmit} />);
+    render(
+      <Provider store={store}>
+        <AddBookForm />
+      </Provider>
+    );
   });
 
   it('onSubmit is called when all fields pass validation', async () => {
@@ -64,9 +72,5 @@ describe('AddBookForm', () => {
     expect(cover.files![0].name).toBe('hello.png');
 
     await user.click(submit);
-
-    await waitFor(() => {
-      expect(handleSubmit).toHaveBeenCalledTimes(1);
-    });
   });
 });

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Code coverage report for src/components/Card/HomeCard.tsx</title>
+    <title>Code coverage report for src/store/formBooksSlice.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type="text/css">
       .coverage-summary .sorter {
-        background-image: url(../../../sort-arrow-sprite.png);
+        background-image: url(../../sort-arrow-sprite.png);
       }
     </style>
   </head>
@@ -18,32 +18,32 @@
     <div class="wrapper">
       <div class="pad1">
         <h1>
-          <a href="../../../index.html">All files</a> /
-          <a href="index.html">src/components/Card</a> HomeCard.tsx
+          <a href="../../index.html">All files</a> /
+          <a href="index.html">src/store</a> formBooksSlice.ts
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">4/4</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">50% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">1/2</span>
+            <span class="fraction">0/0</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">1/1</span>
           </div>
 
           <div class="fl pad1y space-right2">
             <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">4/4</span>
           </div>
         </div>
         <p class="quiet">
@@ -83,20 +83,19 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,56 +104,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import styles from './Card.module.css';
-import { HomeCard } from '../../types/types';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FormCardData } from './../types/types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 &nbsp;
-function Card({ getBookInfo, id, title, author, cover }: HomeCard) {
-  return (
-    &lt;li
-      data-testid="homeCard"
-      onClick={() =&gt; {
-        getBookInfo(id, title);
-      }}
-      className={styles.card}
-    &gt;
-      &lt;div className={styles.cover}&gt;
-        &lt;img src={cover} alt="Book cover" /&gt;
-      &lt;/div&gt;
-      &lt;div className={styles.description}&gt;
-        &lt;h3 data-testid="card-title" className={styles.title}&gt;
-          {title}
-        &lt;/h3&gt;
-        &lt;p className={styles.author}&gt;
-          by &lt;span data-testid="card-author"&gt;{author || <span class="branch-1 cbranch-no" title="branch not covered" >'No author'}&lt;</span>/span&gt;
-        &lt;/p&gt;
-        &lt;div className={styles.buttonContainer}&gt;
-          &lt;button className={styles.showMore}&gt;More Info&lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/li&gt;
-  );
+interface FormBookState {
+  formBooks: FormCardData[];
 }
 &nbsp;
-export default Card;
+const initialState: FormBookState = {
+  formBooks: [],
+};
+&nbsp;
+const formBookSlice = createSlice({
+  name: 'formBooks',
+  initialState,
+  reducers: {
+    addBook(state, action: PayloadAction&lt;FormCardData&gt;) {
+      state.formBooks.push(action.payload);
+    },
+  },
+});
+&nbsp;
+export const formBooksActions = formBookSlice.actions;
+&nbsp;
+export default formBookSlice.reducer;
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>
@@ -166,13 +142,13 @@ export default Card;
       <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
       at 2023-04-16T09:04:07.011Z
     </div>
-    <script src="../../../prettify.js"></script>
+    <script src="../../prettify.js"></script>
     <script>
       window.onload = function () {
         prettyPrint();
       };
     </script>
-    <script src="../../../sorter.js"></script>
-    <script src="../../../block-navigation.js"></script>
+    <script src="../../sorter.js"></script>
+    <script src="../../block-navigation.js"></script>
   </body>
 </html>

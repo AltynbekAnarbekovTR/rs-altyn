@@ -3,21 +3,18 @@ import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { MemoryRouter } from 'react-router-dom';
-import { App, WrappedApp } from './App';
+import { App } from './App';
 import userEvent from '@testing-library/user-event';
+import { Provider } from 'react-redux';
+import store from './store';
 
 describe('App', () => {
-  it('Render cards', () => {
-    // ARRANGE
-    render(<WrappedApp />);
-    // ACT
-    // Expect
-    // expect(screen.getByTestId('cards')).toBeInTheDocument();
-  });
   it('Renders not found if invalid path', () => {
     render(
       <MemoryRouter initialEntries={['/invalid-path']}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </MemoryRouter>
     );
     expect(screen.getByTestId('not-found')).toBeInTheDocument();
@@ -25,7 +22,9 @@ describe('App', () => {
   it('Render About Us paragraph', () => {
     render(
       <MemoryRouter initialEntries={['/about']}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </MemoryRouter>
     );
     const searchValue = screen.getByTestId('about') as HTMLParagraphElement;
@@ -34,7 +33,9 @@ describe('App', () => {
   it('Renders add book', async () => {
     render(
       <MemoryRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </MemoryRouter>
     );
     await userEvent.click(

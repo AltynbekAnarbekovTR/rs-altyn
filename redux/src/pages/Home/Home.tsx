@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import HomeCard from '../../components/Card/HomeCard';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -6,55 +6,22 @@ import styles from './Home.module.css';
 import { v4 } from 'uuid';
 import Modal from './Modal';
 import { BookInfo } from 'types/types';
+import { fetchBooks } from '../../store/booksSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 
-interface Book {
-  id: string;
-  volumeInfo: {
-    title: string;
-    authors: string[];
-    categories: string[];
-    imageLinks: {
-      thumbnail: string;
-    };
-    publishedDate: string;
-    pageCount?: number;
-  };
-}
 function Home() {
-  const [books, setBooks] = useState<Array<Book>>();
   const [bookInfo, setBookInfo] = useState<BookInfo>();
-  const [isLoading, setisLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [error, setError] = useState(null);
 
-  console.log(Array.isArray(books));
-  console.log(typeof isLoading);
-  console.log(books);
+  const dispatch = useAppDispatch();
 
-  const getBooks = async (searchValue: string) => {
-    if (searchValue?.trim()) {
-      setisLoading(true);
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`
-      )
-        .then((res) => {
-          if (!res.ok) {
-            throw Error('Could not fetch the data for that resource');
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setisLoading(false);
-          setError(null);
-          setBooks(data.items);
-        })
-        .catch((err) => {
-          console.log(err);
-          setError(err.message);
-          setisLoading(false);
-        });
-    }
-  };
+  const { homeBooks, loading, error } = useAppSelector((state) => {
+    return state.homeBooks;
+  });
+
+  useEffect(() => {
+    dispatch(fetchBooks('Crime and Punishment'));
+  }, [dispatch]);
 
   const getBookInfo = async (bookId: string, bookTitle: string) => {
     fetch(
@@ -70,21 +37,19 @@ function Home() {
         setBookInfo(data.items[0]);
         setShowModal(true);
       })
-      .catch((err) => {
-        setError(err.message);
-      });
+      .catch(() => {});
   };
 
   return (
     <div className="container">
       <section>
-        <SearchBar onSearch={getBooks} />
+        <SearchBar />
         <div className={styles.cardsContainer}>
-          {error && !isLoading && <div>{error}</div>}
-          {isLoading && <ClipLoader color="#566ed9" />}
-          {books && !error && !isLoading && (
+          {error && !loading && <div>{error}</div>}
+          {loading && <ClipLoader color="#566ed9" />}
+          {homeBooks && !error && !loading && (
             <ul className={styles.cards} data-testid="cards">
-              {books.map(({ volumeInfo, id }) => {
+              {homeBooks.map(({ volumeInfo, id }) => {
                 const thumbnail = volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail;
                 return (
                   <HomeCard

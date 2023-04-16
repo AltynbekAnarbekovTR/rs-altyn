@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { v4 } from 'uuid';
 import FormCard from '../../components/Card/FormCard';
 import AddBookForm from '../../components/AddBookForm/AddBookForm';
 import styles from './AddBook.module.css';
-import { FormCardData } from '../../types/types';
+import { useAppSelector } from '../../hooks/hooks';
 
 const AddBook: React.FC = () => {
-  const [cards, setCards] = useState<FormCardData[]>([]);
-
-  const handleSubmit = (formData: FormCardData) => {
-    setCards((prevCards) => [...prevCards, formData]);
-  };
+  const formCards = useAppSelector((state) => state.formBooks.formBooks);
 
   return (
     <div className="container">
-      <AddBookForm onSubmit={handleSubmit} />
+      <AddBookForm />
       <ul className={styles.cards} data-testid="cards">
-        {cards.map((item) => {
+        {formCards.map((item) => {
           return (
             <FormCard
               key={v4()}

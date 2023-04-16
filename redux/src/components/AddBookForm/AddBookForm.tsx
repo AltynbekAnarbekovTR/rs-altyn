@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { FormCardData } from 'types/types';
 import { v4 } from 'uuid';
+import { useAppDispatch } from '../../hooks/hooks';
+import { formBooksActions } from '../../store/formBooksSlice';
 import styles from './AddBookForm.module.css';
 
 export interface FormData {
@@ -15,11 +16,7 @@ export interface FormData {
   cover: FileList;
 }
 
-interface Props {
-  onSubmit: (data: FormCardData) => void;
-}
-
-const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
+const AddBookForm: React.FC = () => {
   const {
     reset,
     register,
@@ -28,9 +25,11 @@ const AddBookForm: React.FC<Props> = ({ onSubmit }) => {
     formState: { errors, isSubmitSuccessful },
   } = useForm<FormData>({ mode: 'onSubmit' });
 
+  const dispatch = useAppDispatch();
+
   const onSubmitHandler = (data: FormData) => {
     const imageUrl = URL.createObjectURL(data.cover[0]);
-    onSubmit({ ...data, cover: imageUrl });
+    dispatch(formBooksActions.addBook({ ...data, cover: imageUrl }));
   };
 
   useEffect(() => {

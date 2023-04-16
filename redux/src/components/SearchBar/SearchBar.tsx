@@ -1,30 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from './SearchBar.module.css';
+import { fetchBooks, homeBooksActions } from '../../store/booksSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 
-interface Props {
-  onSearch: (searchValue: string) => Promise<void>;
-}
-
-const SearchBar = ({ onSearch }: Props) => {
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
+const SearchBar = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const searchInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    localStorage.setItem('searchValue', inputRef.current?.value || '');
-    setSearchValue(value);
-  };
-
-  useEffect(() => {
-    onSearch(searchValue);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const dispatch = useAppDispatch();
+  const searchValue = useAppSelector((state) => state.homeBooks.searchValue);
+  console.log('searchValue', searchValue);
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSearch(searchValue);
+        dispatch(fetchBooks(searchValue));
       }}
       className={styles.search}
     >
@@ -37,7 +27,7 @@ const SearchBar = ({ onSearch }: Props) => {
               type="text"
               className={styles.input}
               value={searchValue}
-              onChange={searchInputHandler}
+              onChange={(e) => dispatch(homeBooksActions.setSearchValue(e.target.value))}
               placeholder="search..."
             />
             <button
