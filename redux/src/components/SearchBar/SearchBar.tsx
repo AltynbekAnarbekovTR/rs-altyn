@@ -8,7 +8,6 @@ const SearchBar = () => {
 
   const dispatch = useAppDispatch();
   const searchValue = useAppSelector((state) => state.homeBooks.searchValue);
-  console.log('searchValue', searchValue);
 
   return (
     <form

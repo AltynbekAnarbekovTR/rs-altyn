@@ -25,17 +25,13 @@ export const fetchBooks = createAsyncThunk<Book[], string, { rejectValue: string
   'books/fetchBooks',
   async (searchValue, { rejectWithValue }) => {
     try {
-      console.log('Entered fetchBooks');
-
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`
       );
       if (!response.ok) {
         throw new Error('Failed to fetch books');
-        console.log('Here');
       }
       const data = await response.json();
-      console.log('data', data);
       return data.items;
     } catch (err) {
       return rejectWithValue((err as Error).message);
@@ -70,18 +66,9 @@ const bookSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-    // .addMatcher(isError, (state, action: PayloadAction<string>) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    //   console.log('state.error', state.error);
-    // });
   },
 });
 
 export const homeBooksActions = bookSlice.actions;
 
 export default bookSlice.reducer;
-
-// function isError(action: AnyAction) {
-//   return action.type.endsWith('rejected');
-// }
