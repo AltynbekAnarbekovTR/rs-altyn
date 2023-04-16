@@ -15,12 +15,15 @@ function Home() {
 
   const dispatch = useAppDispatch();
 
-  const { homeBooks, loading, error } = useAppSelector((state) => {
+  const { homeBooks, loading, error, searchValue } = useAppSelector((state) => {
     return state.homeBooks;
   });
 
   useEffect(() => {
-    dispatch(fetchBooks('Crime and Punishment'));
+    if (searchValue.trim()) {
+      dispatch(fetchBooks(searchValue));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   const getBookInfo = async (bookId: string, bookTitle: string) => {
