@@ -1,0 +1,19 @@
+header {
+  background-color: #1d1c35;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo img {
+  max-width: 150px;
+  max-height: 150px;
+}
