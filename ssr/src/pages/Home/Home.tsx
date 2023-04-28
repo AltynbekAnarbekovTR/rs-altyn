@@ -22,6 +22,8 @@ function Home() {
   useEffect(() => {
     if (searchValue.trim()) {
       dispatch(fetchBooks(searchValue));
+    } else {
+      dispatch(fetchBooks('discworld'));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);

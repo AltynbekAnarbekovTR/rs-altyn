@@ -34,7 +34,7 @@ const SearchBar = () => {
               type="submit"
               className={`${styles.btn} ${styles.btn_common}`}
             >
-              <i className="fas fa-search" />
+              <i aria-hidden className="fas fa-search" />
             </button>
           </div>
         </div>

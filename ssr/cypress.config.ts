@@ -1,11 +1,14 @@
 import { defineConfig } from 'cypress';
+import coverage from '@cypress/code-coverage/task';
 
 export default defineConfig({
   e2e: {
     video: false,
     baseUrl: 'http://localhost:3001',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      coverage(on, config);
+
+      return config;
     },
   },
 });

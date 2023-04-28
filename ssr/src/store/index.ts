@@ -1,10 +1,4 @@
-// import pkg from '@reduxjs/toolkit';
-// const { configureStore } = pkg;
-
-import * as toolkitRaw from '@reduxjs/toolkit';
-const { configureStore } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
-
-// import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import homeBooksSlice from './booksSlice';
 import formBookSlice from './formBooksSlice';
 

@@ -1,11 +1,9 @@
-import { renderToPipeableStream } from 'react-dom/server';
+import { RenderToPipeableStreamOptions, renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import React from 'react';
 import { App } from './App';
-import pkg from '@reduxjs/toolkit';
-const { configureStore } = pkg;
 
-export default function render(url, opts) {
+export function renderApp(url: string, opts: RenderToPipeableStreamOptions) {
   const stream = renderToPipeableStream(
     <StaticRouter location={url}>
       <App />

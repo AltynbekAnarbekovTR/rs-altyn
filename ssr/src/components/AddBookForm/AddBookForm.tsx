@@ -50,7 +50,11 @@ const AddBookForm: React.FC = () => {
       <div className={styles['input-container']}>
         <label>
           Title:
-          <input type="text" {...register('title', { validate: (value) => value.trim() !== '' })} />
+          <input
+            data-testid="titleInput"
+            type="text"
+            {...register('title', { validate: (value) => value.trim() !== '' })}
+          />
           <p data-testid="titleError" className={styles.error}>
             {errors.title && 'Title is required'}
           </p>
@@ -61,6 +65,7 @@ const AddBookForm: React.FC = () => {
         <label>
           Author:
           <input
+            data-testid="authorInput"
             type="text"
             {...register('author', { validate: (value) => value.trim() !== '' })}
           />
@@ -155,6 +160,7 @@ const AddBookForm: React.FC = () => {
         <label>
           Page Count:
           <input
+            data-testid="pagesInput"
             type="number"
             {...register('pageCount', { required: true, valueAsNumber: true })}
           />
