@@ -16,13 +16,19 @@ describe('Test Main Page', () => {
     cy.visit('/add-book');
     cy.get('input[data-testid="titleInput"]').type('War and Peace');
     cy.get('input[data-testid="authorInput"]').type('Tolstoy');
-    cy.get('select[value="Hardcover"]').click();
+    cy.get('select').select('Hardcover');
     cy.get('input[type="checkbox"]').first().click();
-    cy.get('input[data-testid="inStock"]').click();
+    cy.contains('In Stock').click();
+    // cy.get('[type="radio"]').first().check();
+    // cy.get('input[data-testid="inStock"]').click();
     cy.get('input[data-testid="published"]').type('2020-05-12');
-    cy.get('input[data-testid="inStock"]').click();
-    cy.get('input[data-testid="pagesInput""]').type('1200');
-    // cy.get('input[type=file]').selectFile('file.json');
+
+    // cy.get('input[data-testid="pagesInput""]').type('1200');
+    cy.get('input[data-testid="pagesInput"]').type('1200');
+
+    cy.get('input[type=file]').selectFile('cypress/fixtures/testImage.png');
     // cy.get('input[type="file"]').attachFile('../../src/assets/logo-min.png');
+
+    cy.get('button[type="submit"]').click();
   });
 });

@@ -41,17 +41,15 @@
     },
     "branchMap": {},
     "s": {
-      "0": 0
+      "0": 1
     },
     "f": {
-      "0": 0
+      "0": 1
     },
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/About/About.tsx"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/About/About.tsx"],
       "mappings": "AAAA,OAAO,WAAW;AAClB,OAAO,YAAY;AAEnB,SAAS,QAAQ;AACf,SACE,oCAAC,SAAI,WAAW,OAAO,SACrB,oCAAC,SAAI,WAAU,eACb,oCAAC,YAAG,eAAa,GACjB,oCAAC,OAAE,eAAY,WAAQ,4cAOvB,CACF,CACF;AAEJ;AAEA,eAAe;",
       "names": []
     },
@@ -311,30 +309,21 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 2
+      "0": 12,
+      "1": 13,
+      "2": 13,
+      "3": 13
     },
     "f": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 2
+      "0": 12,
+      "1": 13,
+      "2": 13,
+      "3": 13
     },
     "b": {
-      "0": [
-        0,
-        2
-      ],
-      "1": [
-        2,
-        0
-      ],
-      "2": [
-        0,
-        2
-      ]
+      "0": [8, 5],
+      "1": [2, 11],
+      "2": [1, 12]
     },
     "inputSourceMap": {
       "version": 3,
@@ -389,10 +378,10 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2
+      "0": 12
     },
     "f": {
-      "0": 2
+      "0": 12
     },
     "b": {},
     "inputSourceMap": {
@@ -519,18 +508,15 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0
+      "0": 100,
+      "1": 2
     },
     "f": {
-      "0": 0,
-      "1": 0
+      "0": 100,
+      "1": 2
     },
     "b": {
-      "0": [
-        0,
-        0
-      ]
+      "0": [100, 0]
     },
     "inputSourceMap": {
       "version": 3,
@@ -906,44 +892,39 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 2,
-      "9": 0,
-      "10": 2,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 2
+      "0": 12,
+      "1": 12,
+      "2": 12,
+      "3": 8,
+      "4": 2,
+      "5": 6,
+      "6": 6,
+      "7": 2,
+      "8": 12,
+      "9": 4,
+      "10": 12,
+      "11": 12,
+      "12": 12,
+      "13": 6,
+      "14": 6,
+      "15": 2,
+      "16": 2,
+      "17": 12
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 2,
-      "3": 0,
-      "4": 0,
-      "5": 0
+      "0": 12,
+      "1": 4,
+      "2": 12,
+      "3": 12,
+      "4": 6,
+      "5": 2
     },
     "b": {
-      "0": [
-        0,
-        0
-      ]
+      "0": [2, 6]
     },
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/store/booksSlice.ts"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/store/booksSlice.ts"],
       "mappings": "AAAA,SAAS,aAAa,wBAAwB;AAuBvC,aAAM,aAAa;AAAA,EACxB;AAAA,EACA,OAAO,aAAa,EAAE,gBAAgB,MAAM;AAC1C,QAAI;AACF,YAAM,WAAW,MAAM;AAAA,QACrB,iDAAiD;AAAA,MACnD;AACA,UAAI,CAAC,SAAS,IAAI;AAChB,cAAM,IAAI,MAAM,uBAAuB;AAAA,MACzC;AACA,YAAM,OAAO,MAAM,SAAS,KAAK;AACjC,aAAO,KAAK;AAAA,IACd,SAAS,KAAP;AACA,aAAO,gBAAiB,IAAc,OAAO;AAAA,IAC/C;AAAA,EACF;AACF;AAEA,MAAM,YAAY,YAAY;AAAA,EAC5B,MAAM;AAAA,EACN,cAAc;AAAA,IACZ,aAAa;AAAA,IACb,WAAW,CAAC;AAAA,IACZ,SAAS;AAAA,IACT,OAAO;AAAA,EACT;AAAA,EACA,UAAU;AAAA,IACR,gBAAgB,CAAC,OAAO,WAAW;AACjC,YAAM,cAAc,OAAO;AAAA,IAC7B;AAAA,EACF;AAAA,EACA,eAAe,CAAC,YAAY;AAC1B,YACG,QAAQ,WAAW,SAAS,CAAC,UAAU;AACtC,YAAM,UAAU;AAChB,YAAM,QAAQ;AAAA,IAChB,CAAC,EACA,QAAQ,WAAW,WAAW,CAAC,OAAO,WAAW;AAChD,YAAM,UAAU;AAChB,YAAM,YAAY,OAAO;AAAA,IAC3B,CAAC,EACA,QAAQ,WAAW,UAAU,CAAC,OAAO,WAAW;AAC/C,YAAM,UAAU;AAChB,YAAM,QAAQ,OAAO;AAAA,IACvB,CAAC;AAAA,EACL;AACF,CAAC;AAEM,aAAM,mBAAmB,UAAU;AAE1C,eAAe,UAAU;",
       "names": []
     },
@@ -1012,19 +993,17 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2,
-      "1": 3,
-      "2": 2
+      "0": 12,
+      "1": 69,
+      "2": 12
     },
     "f": {
-      "0": 3
+      "0": 69
     },
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/hooks/hooks.ts"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/hooks/hooks.ts"],
       "mappings": "AAAA,SAAS,aAAa,mBAAyC;AAGxD,aAAM,iBAAiB,MAAM,YAAyB;AACtD,aAAM,iBAAkD;",
       "names": []
     },
@@ -1225,21 +1204,21 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0
+      "0": 12,
+      "1": 32,
+      "2": 32,
+      "3": 32,
+      "4": 52,
+      "5": 32,
+      "6": 4,
+      "7": 4,
+      "8": 4
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0
+      "0": 32,
+      "1": 52,
+      "2": 4,
+      "3": 4
     },
     "b": {},
     "inputSourceMap": {
@@ -1588,45 +1567,28 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 0,
+      "0": 12,
+      "1": 2,
       "2": 0,
-      "3": 0,
-      "4": 0
+      "3": 2,
+      "4": 2
     },
     "f": {
-      "0": 0,
+      "0": 2,
       "1": 0,
-      "2": 0,
-      "3": 0
+      "2": 2,
+      "3": 2
     },
     "b": {
-      "0": [
-        0,
-        0
-      ],
-      "1": [
-        0,
-        0
-      ],
-      "2": [
-        0,
-        0
-      ],
-      "3": [
-        0,
-        0
-      ],
-      "4": [
-        0,
-        0
-      ]
+      "0": [2, 0],
+      "1": [2, 0],
+      "2": [2, 0],
+      "3": [2, 0],
+      "4": [2, 0]
     },
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/Home/Modal.tsx"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/Home/Modal.tsx"],
       "mappings": "AAAA,OAAO,WAAW;AAClB,OAAO,YAAY;AAGnB,MAAM,QAAQ,CAAC;AAAA,EACb;AAAA,EACA;AAAA,EACA,YAAY;AAAA,IACV;AAAA,IACA;AAAA,IACA;AAAA,IACA,YAAY,EAAE,UAAU;AAAA,IACxB;AAAA,IACA;AAAA,IACA;AAAA,EACF;AACF,MAAgB;AACd,SACE;AAAA,IAAC;AAAA;AAAA,MACC,eAAY;AAAA,MACZ,SAAS,MAAM;AACb,qBAAa,KAAK;AAAA,MACpB;AAAA,MACA,WAAW,OAAO;AAAA;AAAA,IAElB;AAAA,MAAC;AAAA;AAAA,QACC,eAAY;AAAA,QACZ,SAAS,CAAC,MAAM;AACd,YAAE,gBAAgB;AAAA,QACpB;AAAA,QACA,WAAW,OAAO;AAAA;AAAA,MAElB;AAAA,QAAC;AAAA;AAAA,UACC,eAAY;AAAA,UACZ,WAAW,OAAO;AAAA,UAClB,SAAS,MAAM;AACb,yBAAa,KAAK;AAAA,UACpB;AAAA;AAAA,QACD;AAAA,MAED;AAAA,MACA,oCAAC,SAAI,WAAW,OAAO,YACrB,oCAAC,SAAI,WAAW,OAAO,aACrB,oCAAC,SAAI,KAAK,WAAW,KAAI,cAAa,CACxC,GACA,oCAAC,SAAI,WAAW,OAAO,eACrB,oCAAC,QAAG,WAAW,OAAO,SAAQ,KAAM,GACpC,oCAAC,OAAE,WAAW,OAAO,UAAQ,OACxB,oCAAC,cAAM,WAAW,WAAY,CACnC,GACA,oCAAC,OAAE,WAAW,OAAO,aAAW,eAAY,iBAAiB,qBAAsB,GACnF,oCAAC,OAAE,WAAW,OAAO,aAAW,gBAAa,cAAc,eAAgB,GAC3E,oCAAC,SAAI,WAAW,OAAO,aACrB,oCAAC,WAAE,gBAAa,aAAa,eAAgB,CAC/C,GACA,oCAAC,OAAE,QAAO,SAAQ,MAAM,UAAU,WAAW,OAAO,QAAM,oBAE1D,CACF,CACF;AAAA,MAEA,oCAAC,SAAI,WAAW,OAAO,mBACrB,oCAAC,WAAG,eAAe,gBAAiB,CACtC;AAAA,IACF;AAAA,EACF;AAEJ;AAEA,eAAe;",
       "names": []
     },
@@ -2310,75 +2272,48 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
+      "0": 32,
+      "1": 32,
+      "2": 32,
+      "3": 32,
+      "4": 52,
+      "5": 32,
+      "6": 8,
       "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
+      "8": 8,
+      "9": 32,
+      "10": 2,
+      "11": 2,
       "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0
+      "13": 2,
+      "14": 2,
+      "15": 2,
+      "16": 32,
+      "17": 100,
+      "18": 100
     },
     "f": {
-      "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
+      "0": 32,
+      "1": 52,
+      "2": 8,
+      "3": 2,
+      "4": 2,
+      "5": 2,
       "6": 0,
-      "7": 0
+      "7": 100
     },
     "b": {
-      "0": [
-        0,
-        0
-      ],
-      "1": [
-        0,
-        0
-      ],
-      "2": [
-        0,
-        0,
-        0
-      ],
-      "3": [
-        0,
-        0
-      ],
-      "4": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "5": [
-        0,
-        0
-      ],
-      "6": [
-        0,
-        0,
-        0
-      ]
+      "0": [0, 8],
+      "1": [0, 2],
+      "2": [32, 2, 2],
+      "3": [32, 12],
+      "4": [32, 32, 30, 18],
+      "5": [100, 100],
+      "6": [32, 2, 2]
     },
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/Home/Home.tsx"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/pages/Home/Home.tsx"],
       "mappings": "AAAA,OAAO,SAAS,WAAW,gBAAgB;AAC3C,OAAO,gBAAgB;AACvB,OAAO,cAAc;AACrB,OAAO,eAAe;AACtB,OAAO,YAAY;AACnB,SAAS,UAAU;AACnB,OAAO,WAAW;AAElB,SAAS,kBAAkB;AAC3B,SAAS,gBAAgB,sBAAsB;AAE/C,SAAS,OAAO;AACd,QAAM,CAAC,UAAU,WAAW,IAAI,SAAmB;AACnD,QAAM,CAAC,WAAW,YAAY,IAAI,SAAS,KAAK;AAEhD,QAAM,WAAW,eAAe;AAEhC,QAAM,EAAE,WAAW,SAAS,OAAO,YAAY,IAAI,eAAe,CAAC,UAAU;AAC3E,WAAO,MAAM;AAAA,EACf,CAAC;AAED,YAAU,MAAM;AACd,QAAI,YAAY,KAAK,GAAG;AACtB,eAAS,WAAW,WAAW,CAAC;AAAA,IAClC,OAAO;AACL,eAAS,WAAW,WAAW,CAAC;AAAA,IAClC;AAAA,EAEF,GAAG,CAAC,QAAQ,CAAC;AAEb,QAAM,cAAc,OAAO,QAAgB,cAAsB;AAC/D;AAAA,MACE,iDAAiD,UAAU;AAAA,IAC7D,EACG,KAAK,CAAC,QAAQ;AACb,UAAI,CAAC,IAAI,IAAI;AACX,cAAM,MAAM,4CAA4C;AAAA,MAC1D;AACA,aAAO,IAAI,KAAK;AAAA,IAClB,CAAC,EACA,KAAK,CAAC,SAAS;AACd,kBAAY,KAAK,MAAM,CAAC,CAAC;AACzB,mBAAa,IAAI;AAAA,IACnB,CAAC,EACA,MAAM,MAAM;AAAA,IAAC,CAAC;AAAA,EACnB;AAEA,SACE,oCAAC,SAAI,WAAU,eACb,oCAAC,iBACC,oCAAC,eAAU,GACX,oCAAC,SAAI,WAAW,OAAO,kBACpB,SAAS,CAAC,WAAW,oCAAC,aAAK,KAAM,GACjC,WAAW,oCAAC,cAAW,OAAM,WAAU,GACvC,aAAa,CAAC,SAAS,CAAC,WACvB,oCAAC,QAAG,WAAW,OAAO,OAAO,eAAY,WACtC,UAAU,IAAI,CAAC,EAAE,YAAY,GAAG,MAAM;AACrC,UAAM,YAAY,WAAW,cAAc,WAAW,WAAW;AACjE,WACE;AAAA,MAAC;AAAA;AAAA,QACC;AAAA,QACA,KAAK,GAAG;AAAA,QACR;AAAA,QACA,OAAO,WAAW;AAAA,QAClB,QAAQ,WAAW;AAAA,QACnB,OAAO;AAAA;AAAA,IACT;AAAA,EAEJ,CAAC,CACH,CAEJ,GACC,aAAa,YACZ;AAAA,IAAC;AAAA;AAAA,MACC;AAAA,MACA,IAAI,SAAS;AAAA,MACb,UAAU,SAAS;AAAA,MACnB,YAAY,SAAS;AAAA;AAAA,EACvB,CAEJ,CACF;AAEJ;AAEA,eAAe;",
       "names": []
     },
@@ -2427,10 +2362,10 @@
     },
     "branchMap": {},
     "s": {
-      "0": 0
+      "0": 2
     },
     "f": {
-      "0": 0
+      "0": 2
     },
     "b": {},
     "inputSourceMap": {
@@ -2533,17 +2468,14 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 0
+      "0": 12,
+      "1": 4
     },
     "f": {
-      "0": 0
+      "0": 4
     },
     "b": {
-      "0": [
-        0,
-        0
-      ]
+      "0": [4, 0]
     },
     "inputSourceMap": {
       "version": 3,
@@ -2669,18 +2601,15 @@
       }
     },
     "s": {
-      "0": 0,
-      "1": 0
+      "0": 1,
+      "1": 1
     },
     "f": {
-      "0": 0,
-      "1": 0
+      "0": 1,
+      "1": 1
     },
     "b": {
-      "0": [
-        0,
-        0
-      ]
+      "0": [1, 0]
     },
     "inputSourceMap": {
       "version": 3,
@@ -2765,13 +2694,13 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 0,
-      "3": 2
+      "0": 12,
+      "1": 12,
+      "2": 1,
+      "3": 12
     },
     "f": {
-      "0": 0
+      "0": 1
     },
     "b": {},
     "inputSourceMap": {
@@ -3542,80 +3471,45 @@
       }
     },
     "s": {
-      "0": 2,
-      "1": 3,
-      "2": 3,
-      "3": 3,
-      "4": 0,
-      "5": 0,
-      "6": 3,
-      "7": 3,
-      "8": 0,
-      "9": 3,
-      "10": 3,
-      "11": 3,
-      "12": 1,
-      "13": 1,
-      "14": 12,
-      "15": 0,
-      "16": 0
+      "0": 12,
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 1,
+      "5": 1,
+      "6": 5,
+      "7": 5,
+      "8": 1,
+      "9": 5,
+      "10": 5,
+      "11": 5,
+      "12": 2,
+      "13": 2,
+      "14": 20,
+      "15": 1,
+      "16": 1
     },
     "f": {
-      "0": 3,
-      "1": 0,
-      "2": 3,
-      "3": 1,
-      "4": 1,
-      "5": 12,
-      "6": 0
+      "0": 5,
+      "1": 1,
+      "2": 5,
+      "3": 2,
+      "4": 2,
+      "5": 20,
+      "6": 1
     },
     "b": {
-      "0": [
-        0,
-        3
-      ],
-      "1": [
-        3,
-        1
-      ],
-      "2": [
-        3,
-        1
-      ],
-      "3": [
-        3,
-        1
-      ],
-      "4": [
-        3,
-        1
-      ],
-      "5": [
-        3,
-        1
-      ],
-      "6": [
-        0,
-        0
-      ],
-      "7": [
-        3,
-        1
-      ],
-      "8": [
-        3,
-        1,
-        1
-      ],
-      "9": [
-        3,
-        1,
-        0
-      ],
-      "10": [
-        3,
-        1
-      ]
+      "0": [1, 4],
+      "1": [5, 1],
+      "2": [5, 1],
+      "3": [5, 1],
+      "4": [5, 1],
+      "5": [5, 1],
+      "6": [1, 0],
+      "7": [5, 1],
+      "8": [5, 1, 1],
+      "9": [5, 1, 0],
+      "10": [5, 1]
     },
     "inputSourceMap": {
       "version": 3,
@@ -3758,16 +3652,16 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 2,
-      "4": 0
+      "0": 12,
+      "1": 3,
+      "2": 4,
+      "3": 3,
+      "4": 1
     },
     "f": {
-      "0": 2,
-      "1": 2,
-      "2": 0
+      "0": 3,
+      "1": 4,
+      "2": 1
     },
     "b": {},
     "inputSourceMap": {
@@ -3798,15 +3692,13 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 2
+      "0": 12
     },
     "f": {},
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/store/index.ts"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/store/index.ts"],
       "mappings": "AAAA,SAAS,sBAAsB;AAC/B,OAAO,oBAAoB;AAC3B,OAAO,mBAAmB;AAE1B,MAAM,QAAQ,eAAe;AAAA,EAC3B,SAAS,EAAE,WAAW,gBAAgB,WAAW,cAAc;AACjE,CAAC;AAED,eAAe;",
       "names": []
     },
@@ -3889,19 +3781,17 @@
     },
     "branchMap": {},
     "s": {
-      "0": 2,
+      "0": 12,
       "1": 0
     },
     "f": {
-      "0": 2,
+      "0": 12,
       "1": 0
     },
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/App.tsx"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/App.tsx"],
       "mappings": "AAAA,OAAO,WAAW;AAClB,SAAS,eAAe,OAAO,cAAc;AAC7C,OAAO,WAAW;AAClB,OAAO,YAAY;AACnB,OAAO,UAAU;AACjB,OAAO,cAAc;AACrB,OAAO,aAAa;AACpB,SAAS,gBAAgB;AACzB,OAAO,WAAW;AAEX,gBAAS,MAAM;AACpB,SACE,0DACE,oCAAC,YAAS,SACR,oCAAC,YAAO,GACR,oCAAC,cACC,oCAAC,SAAM,MAAK,KAAI,SAAS,oCAAC,UAAK,GAAI,GACnC,oCAAC,SAAM,MAAK,KAAI,SAAS,oCAAC,cAAS,GAAI,GACvC,oCAAC,SAAM,MAAK,aAAY,SAAS,oCAAC,aAAQ,GAAI,GAC9C,oCAAC,SAAM,MAAK,UAAS,SAAS,oCAAC,WAAM,GAAI,CAC3C,CACF,CACF;AAEJ;AAEO,gBAAS,aAAa;AAC3B,SACE,oCAAC,qBACC,oCAAC,SAAI,CACP;AAEJ;",
       "names": []
     },
@@ -3925,15 +3815,13 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 2
+      "0": 12
     },
     "f": {},
     "b": {},
     "inputSourceMap": {
       "version": 3,
-      "sources": [
-        "D:/Frontend/Projects/React/RS School/experiment/ssr/src/ClientApp.tsx"
-      ],
+      "sources": ["D:/Frontend/Projects/React/RS School/experiment/ssr/src/ClientApp.tsx"],
       "mappings": "AAAA,OAAO,WAAW;AAClB,SAAS,mBAAmB;AAC5B,SAAS,qBAAqB;AAC9B,SAAS,WAAW;AAEpB;AAAA,EACE,SAAS,eAAe,MAAM;AAAA,EAC9B,oCAAC,qBACC,oCAAC,SAAI,CACP;AACF;",
       "names": []
     },

@@ -9,12 +9,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "testing": "vitest run AddBookForm.test.tsx",
-    "lint": "eslint \"**/*.{ts,tsx}\"",
     "test": "vitest run --coverage",
+    "testing": "vitest run AddBookForm.test.tsx",
+    "cypress": "cypress open",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
     "start": "node server.js",
-    "cy:run-e2e": "cypress run --e2e",
-    "cypress": "cypress open"
+    "cy:run-e2e": "cypress run --e2e"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",

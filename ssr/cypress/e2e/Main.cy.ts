@@ -27,6 +27,42 @@
 /// <reference types="cypress" />
 
 describe('Test Main Page', () => {
+  it('simulates a server error', () => {
+    // const errorMsg = 'Failed to fetch books';
+
+    // cy.intercept('GET', '**/search?query=cypress', { statusCode: 500 }).as('getServerFailure');
+
+    // cy.visit('/');
+
+    // cy.get('input').type('a');
+    // // cy.get('[data-cy="search-field"]').should('be.visible').type('cypress{enter}');
+    // cy.wait('@getServerFailure');
+
+    // cy.contains(errorMsg).should('be.visible');
+
+    const searchValue = 'discworld';
+
+    // intercept the API request and respond with an error
+    cy.intercept(
+      `https://www.googleapis.com/books/v1/volumes?q=${searchValue}&projection=lite&fields=items(id,volumeInfo(title,authors,categories,imageLinks/thumbnail,publishedDate,pageCount))`,
+      {
+        statusCode: 500,
+        body: 'Internal Server Error',
+        headers: {
+          'access-control-allow-origin': '*',
+        },
+        delayMs: 2000, // delay the response to simulate slow network
+      }
+    ).as('apiRequest');
+
+    // visit the page with the search value
+    cy.visit(`/`);
+
+    // wait for the API request to complete and the error message to be displayed
+    cy.wait('@apiRequest');
+    cy.contains('Failed to fetch books');
+  });
+
   it('Check that search bar is working correctly', () => {
     cy.visit('/');
     cy.get('li[data-testid="homeCard"]').should('not.exist');
