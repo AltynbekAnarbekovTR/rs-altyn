@@ -53,4 +53,5 @@ module.exports = {
       version: 'detect',
     },
   },
+  ignorePatterns: ['"**/*.cy.ts"'],
 };

@@ -19,8 +19,11 @@
     "baseUrl": "./src",
     "resolveJsonModule": true
   },
-  "include": ["vite.config.ts", ".eslintrc.cjs", "src"],
-  "exclude": ["**/*.test.tsx", "./cypress.config.ts", "node_modules", "cypress", "**/*.cy.tsx"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["vite.config.ts", ".eslintrc.cjs", "src", "server.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"

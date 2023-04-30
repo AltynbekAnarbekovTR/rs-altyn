@@ -13,8 +13,8 @@
     "testing": "vitest run AddBookForm.test.tsx",
     "cypress": "cypress open",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "start": "node server.js",
-    "cy:run-e2e": "cypress run --e2e"
+    "start": "ts-node server",
+    "cy:run-e2e": "cypress run --e2e && nyc report --reporter=text-summary"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",

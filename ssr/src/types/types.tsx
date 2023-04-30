@@ -1,3 +1,5 @@
+import { RootState } from '../store';
+
 export interface HomeCard {
   title: string;
   author: string[];
@@ -32,4 +34,10 @@ export interface BookInfo {
     pageCount?: number;
     description: string;
   };
+}
+
+declare global {
+  interface Window {
+    __PRELOADED_STATE__: RootState | undefined;
+  }
 }
