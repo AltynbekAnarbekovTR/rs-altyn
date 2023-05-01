@@ -1,0 +1,71 @@
+.card {
+  margin-top: 20px;
+  width: 200px;
+  border-radius: 5px;
+  float: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.description {
+  padding: 10px 0px;
+}
+
+.title {
+  height: 48px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 19px;
+  margin: 0;
+  font-family: 'Inter';
+}
+
+.author {
+  padding: 10px 0;
+  font-size: 18px;
+  font-family: 'Montserrat';
+  max-height: 45px;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.author span {
+  width: 100px;
+  color: blue;
+}
+
+.buttonContainer {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.showMore {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #24a0ed;
+  color: white;
+  padding: 0.5rem 0.5rem;
+
+  font-style: bold;
+  cursor: pointer;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  font-family: 'Inter';
+  font-size: 14px;
+  color: rgb(78, 78, 78);
+}
